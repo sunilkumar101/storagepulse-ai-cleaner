@@ -1,0 +1,41 @@
+{
+  "name": "promo-video",
+  "version": "1.0.0",
+  "description": "My Remotion video",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/transitions": "4.0.539",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.539",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "render:16x9": "remotion render StoreBanner16x9 ../playstore_assets/storagepulse_promo_16x9.mp4 --codec=h264 --crf=16",
+    "render:9x16": "remotion render StoreBanner9x16 ../playstore_assets/storagepulse_autoplay_banner_9x16.mp4 --codec=h264 --crf=16",
+    "render:shots": "remotion still Shot01Treemap ../playstore_assets/screenshots/01_treemap.png && remotion still Shot02Dashboard ../playstore_assets/screenshots/02_dashboard.png && remotion still Shot03AiDedup ../playstore_assets/screenshots/03_ai_dedup.png && remotion still Shot04SwipeDeck ../playstore_assets/screenshots/04_swipe_deck.png && remotion still Shot05Compressor ../playstore_assets/screenshots/05_compressor.png && remotion still Shot06Social ../playstore_assets/screenshots/06_social_cleaner.png && remotion still Shot07Vault ../playstore_assets/screenshots/07_vault.png && remotion still Shot08Widgets ../playstore_assets/screenshots/08_widgets.png",
+    "render:graphics": "remotion still FeatureGraphic ../playstore_assets/feature_graphic_1024x500.png && remotion still HiResIcon ../playstore_assets/icon_512x512.png",
+    "render:all": "npm run render:shots && npm run render:graphics && npm run render:16x9 && npm run render:9x16"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

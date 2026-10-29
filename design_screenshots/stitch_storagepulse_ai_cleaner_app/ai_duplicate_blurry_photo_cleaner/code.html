@@ -1,0 +1,419 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed": "#07006c", "tertiary-fixed-dim": "#ffb95f", "surface-container-low": "#181b25", "on-secondary": "#1000a9", "on-secondary-container": "#b0b2ff", "outline-variant": "#3c4a42", "on-background": "#dfe2ef", "primary-fixed-dim": "#4edea3", "on-primary-container": "#00422b", "on-primary": "#003824", "on-tertiary-fixed": "#2a1700", "on-primary-fixed": "#002113", "secondary-container": "#3131c0", "secondary-fixed": "#e1e0ff", "surface-container": "#1c1f29", "on-secondary-fixed-variant": "#2f2ebe", "error-container": "#93000a", "inverse-surface": "#dfe2ef", "surface-container-high": "#262a34", "on-surface": "#dfe2ef", "on-tertiary": "#472a00", "on-error": "#690005", "on-surface-variant": "#bbcabf", "primary-fixed": "#6ffbbe", "outline": "#86948a", "on-tertiary-container": "#523200", "error": "#ffb4ab", "surface-tint": "#4edea3", "surface-dim": "#0f131c", "surface-container-lowest": "#0a0e17", "primary-container": "#10b981", "surface": "#0f131c", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-on-surface": "#2c303a", "tertiary-container": "#e29100", "surface-variant": "#31353f", "secondary": "#c0c1ff", "surface-bright": "#353943", "on-error-container": "#ffdad6", "inverse-primary": "#006c49", "tertiary": "#ffb95f", "primary": "#4edea3", "secondary-fixed-dim": "#c0c1ff", "background": "#0f131c", "on-primary-fixed-variant": "#005236", "surface-container-highest": "#31353f" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "margin": "1rem" }, "fontFamily": { "label-caps": ["JetBrains Mono"], "body-lg": ["Plus Jakarta Sans"], "telemetry-sm": ["JetBrains Mono"], "headline-xl": ["Plus Jakarta Sans"], "telemetry-xl": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "telemetry-md": ["JetBrains Mono"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "telemetry-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "telemetry-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "telemetry-xl": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "telemetry-md": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "telemetry-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.45)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="StoragePulse AI App Icon" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VnxC7_jXEURoFLDCIjVqHzyR0qKyXUIbuuya6Ij7lax7yj6_t9P02tUL72y1hMM6_ia3qwVX9MkOjJsoOUKXR19kt3vdxhw1rOrWm3InVqmNEKpBRlXQLkLzNkHyiTdAsJqKR6gPDZgFKBqNv56mAAzEocKmDpZZUqBh6-wmKYtMx8Y66PzzgdY6aUu8A-dWz7Caw0DfVYsZWT4YqquVSsbwywKXU57RORp0C0hjjFkYtBZb5VSS-tLA"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface truncate">StoragePulse</span><span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded-full bg-primary/10 text-primary shrink-0">PRO</span></div><span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant truncate">Ai Clean &amp; Scrubber</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">filter_list</span></button><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">search</span></button><div class="relative flex items-center justify-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY38j5qfN6Xha6OpqLj6Vl3xRfloJG1CvY_bdrBfy1ANaOUckCKyaTYVBN4k_Fbf8kLgoRdQhIbB-Vz7r5mnbEHujdjNP74pYhQ1wiiHg5JjnBqvwA6G3IooPF7yj0RQyJGuL3eBlDu4Lmql7lRcoHd7KfRhE_7GdQAR91NwVHkwk5R2mUD3FAGSMpcJPjfK5jIouiib4GFfvZt1a_uEYVh6C3rbmdqGbHUQGI3eQWI9Mtz8-XV3XV"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full pb-28">
+<!-- Screen Header & Engine Status Telemetry -->
+<section class="px-margin pt-2 pb-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary tracking-wider uppercase font-semibold">ON-DEVICE NPU</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">security</span>
+<span class="">Zero Cloud Uploads</span>
+</div>
+</div>
+<div class="mt-1">
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold tracking-tight text-on-surface">
+        AI Photo &amp; File Deduplicator
+      </h1>
+<p class="font-telemetry-sm text-telemetry-sm text-on-surface-variant mt-0.5 tracking-tight flex items-center gap-1.5">
+<span class="text-tertiary font-mono">dHash + SHA-256</span>
+<span class="">•</span>
+<span class="">Perceptual Biometric Cluster Engine (100% Offline)</span>
+</p>
+</div>
+</section>
+<!-- Horizontal Category Filter Chips -->
+<div class="w-full overflow-x-auto no-scrollbar px-margin py-2 flex items-center gap-2"><button class="shrink-0 h-8 px-3 rounded-full bg-primary text-on-primary font-telemetry-sm text-telemetry-sm font-semibold flex items-center gap-1.5 shadow-md shadow-primary/20"><span class="">All Clutter</span><span class="px-1.5 py-0.2 rounded-full bg-on-primary-container text-primary-fixed text-[10px] font-bold">6.2 GB</span></button><button class="shrink-0 h-8 px-3 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm flex items-center gap-1.5 transition-colors"><span class="">Exact Duplicates</span><span class="text-on-surface-variant/80 text-[10px]">1.8 GB</span></button><button class="shrink-0 h-8 px-3 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm flex items-center gap-1.5 transition-colors"><span class="">Burst Shots</span><span class="text-on-surface-variant/80 text-[10px]">2.4 GB</span></button><button class="shrink-0 h-8 px-3 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm flex items-center gap-1.5 transition-colors"><span class="">Blurry / Dark</span><span class="text-on-surface-variant/80 text-[10px]">1.1 GB</span></button><button class="shrink-0 h-8 px-3 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-telemetry-sm text-telemetry-sm flex items-center gap-1.5 transition-colors"><span class="">Old Screenshots</span><span class="text-on-surface-variant/80 text-[10px]">0.9 GB</span></button><div class="shrink-0 w-4 h-1"></div></div>
+<!-- Auto-Select Smart Assistant Banner -->
+<section class="px-margin py-2">
+<div class="relative overflow-hidden bg-surface-container-low rounded-xl p-3.5 shadow-lg backdrop-blur-md">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-3 relative z-10">
+<div class="flex items-start gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-md text-headline-md text-on-surface text-[15px] font-semibold leading-tight">Smart Keeper Active</span>
+<span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded bg-primary/10 text-primary">NPU Guarded</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+              Sharpest, best-lit photo in each cluster is kept untouched. Redundant shots auto-queued.
+            </p>
+<div class="flex items-center gap-2 mt-2 font-telemetry-sm text-telemetry-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span class=""><strong class="font-bold text-on-surface font-mono">348</strong> redundant files flagged across <strong class="font-bold text-on-surface font-mono">84</strong> clusters</span>
+</div>
+</div>
+</div>
+<!-- Custom Tactile Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1" title="Toggle Auto-Select Duplicates">
+<input checked="" class="sr-only peer" id="auto-select-toggle" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant rounded-full peer peer-checked:bg-primary transition-all"></div>
+<div class="absolute left-0.5 top-0.5 bg-on-surface-variant peer-checked:bg-surface-container-lowest w-5 h-5 rounded-full transition-transform peer-checked:translate-x-5 flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[13px] text-surface-container-lowest peer-checked:text-primary font-bold">check</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Duplicate Clusters Container -->
+<section class="px-margin flex flex-col gap-4 mt-2">
+<!-- CLUSTER 1: Portrait Burst Shots -->
+<div class="bg-surface-container-low rounded-xl p-3.5 shadow-md flex flex-col gap-3">
+<!-- Cluster Header -->
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-2 rounded-full bg-tertiary shrink-0"></div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface text-[15px] font-semibold truncate">
+              Burst Portrait Group
+            </h2>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+              Oct 18, 15:42 • 4 Photos <span class="text-on-surface font-mono">(48.2 MB)</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="font-telemetry-sm text-telemetry-sm px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-medium font-mono">
+            98.8% MATCH (dHash)
+          </span>
+</div>
+</div>
+<!-- Horizontal Photo Filmstrip -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Photo 1: Keeper Original -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col group">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Cinematic high resolution portrait photo of a smiling woman outdoors during golden hour sunlight, tack sharp focus on facial features, DSLR bokeh background with warm obsidian aesthetic tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKDlcMBuD5gK46KGCx-o0xbdAjGu39qwo7JbZkoxOriLQNVmnvH_uCkffOF2ljWNwxfD_KaTgEYaoqS_E1vbU9CH-1uReiZFGr9hza9DvSTuyGxdy09ZY44kft45f1sXnxj0rfH_cF4uu_WovpZP6_cq2l-ft--W0Yans35NgCjLvRbWIt14STjt5r6_qyQYRfrLncygfboTX68W0Fuh2Dz1wAqrYG3xXhDEBG37-4gRDJJEahe3pz">
+<!-- Keeper Top Shield Tag -->
+<div class="absolute top-1.5 left-1.5 right-1.5 flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-surface-container-lowest/90 text-primary font-telemetry-sm text-telemetry-sm font-semibold backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px] text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="">KEEP</span>
+</span>
+<div class="w-5 h-5 rounded-full bg-surface-container-lowest/90 flex items-center justify-center text-primary backdrop-blur-sm shadow">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+</div>
+</div>
+<!-- Quality Metric Badge -->
+<div class="absolute bottom-1.5 left-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface font-telemetry-sm text-telemetry-sm font-mono backdrop-blur-sm">
+                Score: 99.4/100
+              </span>
+</div>
+</div>
+<div class="p-2 flex items-center justify-between bg-surface-container">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-medium text-on-surface truncate">Original (48MP)</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-mono font-semibold">12.1 MB • Safe</span>
+</div>
+<div class="w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+</div>
+</div>
+</div>
+<!-- Photo 2: Duplicate Candidate -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Nearly identical portrait burst frame of smiling woman outdoors, identical angle, slight micro-shift in hair position, dark cinematic styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0mCfWzgRvt20b7yQmQA8J5obr8ZHFy8oubl4QcKpIaWSQtGVKtLXflHyhYC0udXGVxHCA03HQFMHDYyVgistdSO6GYjyBztRw0rY0a-XH0AV88Z-1wr58LiK4oXqLkA03Mtbpx5WK0nYA9tN1a1llNHivSTUoKlex0KR2yNCsVBL0IKCYQ9lpIxktbNHiVpIJywVSUX0BepmMemgbd9wlo_8jilqkKLlN3-VSA7crR82W_F9_8DP6">
+<div class="absolute top-1.5 left-1.5 right-1.5 flex items-center justify-between">
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-error-container/85 text-on-error-container font-telemetry-sm text-telemetry-sm font-semibold backdrop-blur-sm">
+<span class="">Duplicate</span>
+</span>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+</label>
+</div>
+<div class="absolute bottom-1.5 left-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface-variant font-telemetry-sm text-telemetry-sm font-mono backdrop-blur-sm">
+                Identical Frame
+              </span>
+</div>
+</div>
+<div class="p-2 flex items-center justify-between bg-surface-container">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-medium text-on-surface-variant truncate">Burst_02.jpg</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error font-mono font-semibold">-12.1 MB</span>
+</div>
+<span class="material-symbols-outlined text-error text-[18px]">delete</span>
+</div>
+</div>
+<!-- Photo 3: Slightly Blurry Candidate -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover filter blur-[0.4px]" data-alt="Burst portrait shot of smiling woman with visible camera motion blur in the eyelashes and lips, softer focus, dark ambient tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAZ5boXa8pP4sE_0mn0zXLlQJdz4plwU31LnWPTd6_aust-VUEltbflpCl8UqfR7L1aTHeRQEKw9qaCIZQg4RS5coiFzfD3roTE-NLXF0MgYbqLdiTt0CGgOLPE_UYuqXmtjihzkLTB_RKeVw4gajn_5QDWGNeOxWY4gc3DgG6e2Eap3t-pWsTX03Qp9V3acvLwOyToB_Xtvh3ghRboD-lzuxO63c98DhH3dCPQrhGHe9qWcn8Q_VF">
+<div class="absolute top-1.5 left-1.5 right-1.5 flex items-center justify-between">
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-error-container/85 text-on-error-container font-telemetry-sm text-telemetry-sm font-semibold backdrop-blur-sm">
+<span class="">Motion Blur</span>
+</span>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+</label>
+</div>
+<div class="absolute bottom-1.5 left-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface-variant font-telemetry-sm text-telemetry-sm font-mono backdrop-blur-sm">
+                Blur: 64% Defocus
+              </span>
+</div>
+</div>
+<div class="p-2 flex items-center justify-between bg-surface-container">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-medium text-on-surface-variant truncate">Burst_03.jpg</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error font-mono font-semibold">-11.8 MB</span>
+</div>
+<span class="material-symbols-outlined text-error text-[18px]">delete</span>
+</div>
+</div>
+<!-- Photo 4: Closed Eyes Candidate -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Burst portrait frame where subject has eyes blinking closed midway through smile, high contrast obsidian backdrop aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnDLWO2GbZcMJvK4fzUpzKVw7lBFpIj0Bhp6u3bm5G-WUIYuVe5HZ0wiX4jfWIowbFLDHuoVoJnqREDe_lHh9yShijAQwo0xE3BmZlivluMuZA_4amWL_raxQ0VZMFVJH7gA0HWjYlfMlsXV3MwQuwjglPqyOC8zXTJsV9J56s0muTNdzX8EgzqAgUsQztgs_Uw9cuYa-gtzxpR3lurDHI4EPJCKm_jWEq67N71ES-jBPrbFqE8QZY">
+<div class="absolute top-1.5 left-1.5 right-1.5 flex items-center justify-between">
+<span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-error-container/85 text-on-error-container font-telemetry-sm text-telemetry-sm font-semibold backdrop-blur-sm">
+<span class="">Eyes Closed</span>
+</span>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="w-5 h-5 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+</label>
+</div>
+<div class="absolute bottom-1.5 left-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface-variant font-telemetry-sm text-telemetry-sm font-mono backdrop-blur-sm">
+                Facial AI Alert
+              </span>
+</div>
+</div>
+<div class="p-2 flex items-center justify-between bg-surface-container">
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-medium text-on-surface-variant truncate">Burst_04.jpg</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error font-mono font-semibold">-12.2 MB</span>
+</div>
+<span class="material-symbols-outlined text-error text-[18px]">delete</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Micro Bar -->
+<div class="flex items-center justify-between pt-1 font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<div class="flex items-center gap-3">
+<button class="text-primary hover:underline font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">compare</span>
+<span class="">Compare Loupe</span>
+</button>
+<span class="">•</span>
+<button class="hover:text-on-surface">Deselect (3)</button>
+</div>
+<span class="text-error font-mono font-semibold">Purge 3: -36.1 MB</span>
+</div>
+</div>
+<!-- CLUSTER 2: WhatsApp Forwarded Memes & Bit-Identical Files -->
+<div class="bg-surface-container-low rounded-xl p-3.5 shadow-md flex flex-col gap-3">
+<!-- Cluster Header -->
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface text-[15px] font-semibold truncate">
+              Forwarded Memes &amp; Screenshots
+            </h2>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+              18 Identical Copies • <span class="text-on-surface font-mono">142.0 MB</span>
+</span>
+</div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-medium font-mono">
+          SHA-256 BIT-IDENTICAL
+        </span>
+</div>
+<!-- Content Preview Split -->
+<div class="flex items-stretch gap-2.5">
+<!-- 1 Kept File Card -->
+<div class="w-1/3 rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="High contrast funny tech meme screenshot showing code compiling dark mode graphic with viral humor text in glowing cybernetic palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJMVGCVlreIvuHG0jSZ0D7dIJy55aVcSnojywX9CQ0JjUN_lvxilJwctbQbwvDGuBiuZUtjPm5PAWxoxqb702w13N8xKGYGvKskEWoyGfj1BIBnMLPcFGK9TFoZ1text2WHQF25nmBCBTk44shP-asLCbyF8IZry9xDbz8dg0gjYfRp00XRPeB74b9HuacVDd64X-BAS30IuEw_8d_alPtJIgEZYtHUx7o9KeY-SrC8daS31XGqIl">
+<div class="absolute top-1 left-1">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-lowest/90 text-primary font-telemetry-sm text-telemetry-sm font-bold backdrop-blur-sm">
+                KEPT
+              </span>
+</div>
+<div class="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-surface-container-lowest/80 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[11px]">lock</span>
+</div>
+</div>
+<div class="p-1.5 bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate block text-[11px]">Primary Copy</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant text-[10px] block truncate font-mono">/Downloads/</span>
+</div>
+</div>
+<!-- Multi-duplicate Stack Badge -->
+<div class="flex-1 rounded-lg bg-surface-container p-3 flex flex-col justify-between">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface text-[14px] font-semibold">17 Duplicate Copies</span>
+<div class="w-5 h-5 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[14px] font-bold">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] mt-1 leading-tight">
+              Scattered across WhatsApp Sent, Telegram Storage, and Slack Cache folders.
+            </p>
+<div class="flex items-center gap-1.5 mt-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-telemetry-sm text-telemetry-sm text-[10px]">WA Sent (11)</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-telemetry-sm text-telemetry-sm text-[10px]">TG Cache (6)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-telemetry-sm text-telemetry-sm text-error font-mono font-bold text-[13px]">-134.1 MB</span>
+<button class="px-2 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm text-[11px] font-medium hover:bg-surface-variant">
+              Review List (18)
+            </button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<span class="text-primary font-medium">Auto-selection: Retaining original download</span>
+<button class="text-on-surface-variant hover:text-on-surface">Keep Newest Only</button>
+</div>
+</div>
+<!-- CLUSTER 3: Night Mode Long Exposure Variations -->
+<div class="bg-surface-container-low rounded-xl p-3.5 shadow-md flex flex-col gap-3">
+<!-- Cluster Header -->
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-2 rounded-full bg-secondary-fixed-dim shrink-0"></div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface text-[15px] font-semibold truncate">
+              Night Cityscape Long Exposures
+            </h2>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+              Oct 16, 21:10 • 3 Photos <span class="text-on-surface font-mono">(36.4 MB)</span>
+</span>
+</div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-medium font-mono">
+          96.1% SIMILAR
+        </span>
+</div>
+<!-- 3 Columns Preview -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Shot 1: Sharpest Keeper -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Breathtaking sharp night cityscape photo taken from rooftop overlooking illuminated neon skyscrapers, light trails on highway, pitch black night sky, zero motion shake." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNWdrtFOApQWEWf-jeL19_ffkbgrK8DpVxl_QPYXYl5TmqT5Vkj8qpfa5aywXkWNdHcHDheOyehcrCc5Y6tdH95-8P1dfsee798_CavfTplfgg9lVketdC8KbyevsAEnFghyHH5LzDJ_ZN0nhsLMxRREeQl-h4OizkCS27wt1yl6yjSLKnTaeM86Ztwhm-BMMXdAMUycwEDHHVDBHbF7pJeyfS3NNveX-hw_DBJKvmR03XpfV5blbz">
+<div class="absolute top-1 left-1">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-lowest/90 text-primary font-telemetry-sm text-telemetry-sm text-[9px] font-bold backdrop-blur-sm">
+                ✨ SHARPEST
+              </span>
+</div>
+<div class="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-surface-container-lowest/80 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[10px]">shield</span>
+</div>
+</div>
+<div class="p-1.5 bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate block text-[11px]">IMG_9041</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary text-[10px] block font-mono font-semibold">12.2 MB • Keep</span>
+</div>
+</div>
+<!-- Shot 2: Hand Jitter Blur -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover filter blur-[0.8px]" data-alt="Night cityscape photo ruined by long exposure hand jitter blur, blurry streaks on neon highway signs, dark obsidian ambient tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSLsRIEZR7I6BKIDVw_7q1cQi9PL-DJUnEpx_jQKVOAKcQdx_ZRik6kz62AEr8JB47_S6SMepx-JMauIWPxFfuZ4CHhkTQm6Ovcf_YbNZy0a9MBznHKmh5AnmpsL1Yp1jFfovBbpjcHbv9pGonQvOouYoWfzUH_u2K6vW7iLIhmpPh0ErOAcjAyvPBlRY3My0onUFQfOks9b8qaT8xXJXEq7wRyVvLgwOfuHgai3hbS5kEYznjrpmz">
+<div class="absolute top-1 left-1 right-1 flex items-center justify-between">
+<span class="px-1 py-0.2 rounded bg-error-container/85 text-on-error-container font-telemetry-sm text-telemetry-sm text-[9px] font-semibold backdrop-blur-sm">
+                Jitter
+              </span>
+<div class="w-4 h-4 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[11px] font-bold">check</span>
+</div>
+</div>
+</div>
+<div class="p-1.5 bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium truncate block text-[11px]">IMG_9042</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error text-[10px] block font-mono font-semibold">-12.1 MB</span>
+</div>
+</div>
+<!-- Shot 3: Overexposed Flare -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container shadow-sm flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover brightness-125" data-alt="Night cityscape photograph with blown out white highlights and sensor glare across skyscraper windows, dark ambient tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvWe-aEJWCi4afLf8gK6EiYhRNmaTVv74c6aAP8kLlXF9b27Sru62gyZM92jdo-4aQYlJ6-CipZX1zEyoU2QqMVhSRZXT9gVyPszsbCHFT4jFhTlwtSOZkknGNttnplJhixzrQby0vPuUp8hJVlQ-yrGZPOkH6Z0usXTN0PiWhMdm_3CebrMXrBaivPLYh0trlhn9rZXzEVfylIxQ_IK2iI63Zul9zKlPi0IwBpkWyqyhLSh4IdFfq">
+<div class="absolute top-1 left-1 right-1 flex items-center justify-between">
+<span class="px-1 py-0.2 rounded bg-error-container/85 text-on-error-container font-telemetry-sm text-telemetry-sm text-[9px] font-semibold backdrop-blur-sm">
+                Overexposed
+              </span>
+<div class="w-4 h-4 rounded-md bg-primary text-on-primary flex items-center justify-center shadow">
+<span class="material-symbols-outlined text-[11px] font-bold">check</span>
+</div>
+</div>
+</div>
+<div class="p-1.5 bg-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium truncate block text-[11px]">IMG_9043</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error text-[10px] block font-mono font-semibold">-12.1 MB</span>
+</div>
+</div>
+</div>
+<!-- Action footer -->
+<div class="flex items-center justify-between pt-1 font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<span class="">AI Verdict: 1 Sharp Keeper identified</span>
+<span class="text-error font-mono font-semibold">Purge 2: -24.2 MB</span>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Diagnostic Bar (Positioned above shell's fixed bottom navigation) -->
+<aside class="sticky bottom-0 inset-x-0 z-40 bg-surface-container-lowest/95 backdrop-blur-2xl shadow-[0_-8px_24px_rgba(0,0,0,0.7)] px-margin py-3 mt-4 flex flex-col gap-2">
+<!-- Telemetry Counter Row -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">cleaning_services</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">
+          Selected: <strong class="text-primary font-mono font-bold">348</strong> Redundant Items
+        </span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-telemetry-md text-telemetry-md font-bold text-primary font-mono">+4.85 GB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Free Space</span>
+</div>
+</div>
+<!-- Main Emerald Action Button -->
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-headline-md text-headline-md text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/25 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">delete_sweep</span>
+<span class="">Trash 348 Clutter Files (Free 4.85 GB)</span>
+</button>
+<!-- Sandbox Protection Subtitle -->
+<div class="flex items-center justify-center gap-1.5 text-center font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-primary">restore_from_trash</span>
+<span class="">Protected by 30-Day Safe Sandbox • Instant Undo Available</span>
+</div>
+</aside>
+</div>
+<script>
+  // Simple interactive toggle handler for auto-selection logic
+  (function() {
+    const toggle = document.getElementById('auto-select-toggle');
+    if (toggle) {
+      toggle.addEventListener('change', (e) => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]:not(#auto-select-toggle)');
+        checkboxes.forEach(cb => {
+          cb.checked = e.target.checked;
+        });
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(0,0,0,0.55)]" data-active-classes="text-primary [&amp;_.indicator-dot]:opacity-100"><div class="grid grid-cols-5 items-center h-16 px-1"><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">speed</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Dashboard</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="treemap" href="#"><span class="material-symbols-outlined text-[22px]">account_tree</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Treemap</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="ai-clean" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-body-sm text-body-sm font-medium tracking-tight">AI Clean</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="gallery-vault" href="#"><span class="material-symbols-outlined text-[22px]">lock</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Gallery</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="tools" href="#"><span class="material-symbols-outlined text-[22px]">build_circle</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Tools</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a></div></nav>
+
+</body></html>

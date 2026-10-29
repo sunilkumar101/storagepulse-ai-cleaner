@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="tm_explain_dup">
+        <item quantity="one">%1$d duplicate copy (the original is kept)</item>
+        <item quantity="other">%1$d duplicate copies (the original is kept)</item>
+    </plurals>
+    <plurals name="tm_explain_sent">
+        <item quantity="one">%1$d WhatsApp sent copy (the original stays in your gallery)</item>
+        <item quantity="other">%1$d WhatsApp sent copies (originals stay in your gallery)</item>
+    </plurals>
+    <plurals name="tm_explain_apk">
+        <item quantity="one">%1$d APK installer</item>
+        <item quantity="other">%1$d APK installers</item>
+    </plurals>
+    <plurals name="tm_explain_thumb">
+        <item quantity="one">%1$d cached thumbnail (rebuilt automatically)</item>
+        <item quantity="other">%1$d cached thumbnails (rebuilt automatically)</item>
+    </plurals>
+    <plurals name="tm_dups_count">
+        <item quantity="one">%1$d GROUP</item>
+        <item quantity="other">%1$d GROUPS</item>
+    </plurals>
+    <plurals name="purge_done">
+        <item quantity="one">Moved %1$s file (%2$s) to Safe Trash.</item>
+        <item quantity="other">Moved %1$s files (%2$s) to Safe Trash.</item>
+    </plurals>
+    <plurals name="purge_skipped">
+        <item quantity="one">%1$d skipped because it was no longer an identical copy.</item>
+        <item quantity="other">%1$d skipped because they were no longer identical copies.</item>
+    </plurals>
+    <plurals name="purge_body">
+        <item quantity="one">%1$s file from this folder will be moved to the 30-Day Safe Trash:</item>
+        <item quantity="other">%1$s files from this folder will be moved to the 30-Day Safe Trash:</item>
+    </plurals>
+    <plurals name="ai_flagged">
+        <item quantity="one">%1$s redundant file flagged across %2$d clusters</item>
+        <item quantity="other">%1$s redundant files flagged across %2$d clusters</item>
+    </plurals>
+    <plurals name="ai_photos">
+        <item quantity="one">%1$d photo (%2$s)</item>
+        <item quantity="other">%1$d photos (%2$s)</item>
+    </plurals>
+    <plurals name="ai_msg_moved">
+        <item quantity="one">Moved %1$s file (%2$s) to Safe Trash.</item>
+        <item quantity="other">Moved %1$s files (%2$s) to Safe Trash.</item>
+    </plurals>
+    <plurals name="ai_selected_summary">
+        <item quantity="one">Selected: %1$s item · +%2$s free</item>
+        <item quantity="other">Selected: %1$s items · +%2$s free</item>
+    </plurals>
+    <plurals name="ai_confirm_body">
+        <item quantity="one">%1$s file will be moved to the 30-Day Safe Trash. The protected keeper of every group stays. You can undo right away or restore any time within 30 days.</item>
+        <item quantity="other">%1$s files will be moved to the 30-Day Safe Trash. The protected keeper of every group stays. You can undo right away or restore any time within 30 days.</item>
+    </plurals>
+    <plurals name="cx_items">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+    <plurals name="so_msg_cleaned">
+        <item quantity="one">Moved %1$s file (%2$s) to Safe Trash.</item>
+        <item quantity="other">Moved %1$s files (%2$s) to Safe Trash.</item>
+    </plurals>
+    <plurals name="so_confirm_body">
+        <item quantity="one">%1$s file will be moved to the 30-Day Safe Trash. The chat app will show it as no longer available; you can restore it for 30 days.</item>
+        <item quantity="other">%1$s files will be moved to the 30-Day Safe Trash. The chat app will show them as no longer available; you can restore them for 30 days.</item>
+    </plurals>
+    <plurals name="so_items">
+        <item quantity="one">%1$s item</item>
+        <item quantity="other">%1$s items</item>
+    </plurals>
+    <plurals name="ga_gps_title">
+        <item quantity="one">Remove location from %1$d photo?</item>
+        <item quantity="other">Remove location from %1$d photos?</item>
+    </plurals>
+    <plurals name="ga_gps_done">
+        <item quantity="one">Location removed from %1$d photo. %2$d skipped (not JPEG).</item>
+        <item quantity="other">Location removed from %1$d photos. %2$d skipped (not JPEG).</item>
+    </plurals>
+    <plurals name="vault_photos">
+        <item quantity="one">%1$d hidden photo</item>
+        <item quantity="other">%1$d hidden photos</item>
+    </plurals>
+    <plurals name="vault_videos">
+        <item quantity="one">%1$d video</item>
+        <item quantity="other">%1$d videos</item>
+    </plurals>
+    <plurals name="vault_lock_title">
+        <item quantity="one">Move %1$d item into the vault?</item>
+        <item quantity="other">Move %1$d items into the vault?</item>
+    </plurals>
+    <plurals name="vault_lock_done">
+        <item quantity="one">%1$d item locked in the vault. %2$d failed.</item>
+        <item quantity="other">%1$d items locked in the vault. %2$d failed.</item>
+    </plurals>
+    <plurals name="vault_restore_done">
+        <item quantity="one">Restored %1$d item to its folder.</item>
+        <item quantity="other">Restored %1$d items to their folders.</item>
+    </plurals>
+    <plurals name="tl_unused_badge">
+        <item quantity="one">%1$d APP · %2$s</item>
+        <item quantity="other">%1$d APPS · %2$s</item>
+    </plurals>
+    <plurals name="tl_never_opened">
+        <item quantity="one">Not opened since install (%1$d day)</item>
+        <item quantity="other">Not opened since install (%1$d days)</item>
+    </plurals>
+    <plurals name="tl_installers_body">
+        <item quantity="one">%1$d .apk / .xapk package in Download/ and Telegram/</item>
+        <item quantity="other">%1$d .apk / .xapk packages in Download/ and Telegram/</item>
+    </plurals>
+    <plurals name="tl_installers_cta">
+        <item quantity="one">Move %1$d APK to Safe Trash (free %2$s)</item>
+        <item quantity="other">Move %1$d APKs to Safe Trash (free %2$s)</item>
+    </plurals>
+    <plurals name="tl_trash_next">
+        <item quantity="one">%1$d DAY LEFT</item>
+        <item quantity="other">%1$d DAYS LEFT</item>
+    </plurals>
+    <plurals name="tl_trash_item">
+        <item quantity="one">%1$s · %2$d day left</item>
+        <item quantity="other">%1$s · %2$d days left</item>
+    </plurals>
+    <plurals name="tl_msg_restored">
+        <item quantity="one">Restored %1$d file.</item>
+        <item quantity="other">Restored %1$d files.</item>
+    </plurals>
+    <plurals name="tl_msg_emptied">
+        <item quantity="one">Deleted %1$d file permanently.</item>
+        <item quantity="other">Deleted %1$d files permanently.</item>
+    </plurals>
+    <plurals name="tl_msg_installers">
+        <item quantity="one">Moved %1$d installer to Safe Trash.</item>
+        <item quantity="other">Moved %1$d installers to Safe Trash.</item>
+    </plurals>
+    <plurals name="tl_trash_meta">
+        <item quantity="one">%1$s · %2$s file</item>
+        <item quantity="other">%1$s · %2$s files</item>
+    </plurals>
+    <plurals name="so_files_count">
+        <item quantity="one">%1$s · %2$s file</item>
+        <item quantity="other">%1$s · %2$s files</item>
+    </plurals>
+    <plurals name="tl_empty_body">
+        <item quantity="one">%1$s file in Safe Trash will be deleted for good. This cannot be undone.</item>
+        <item quantity="other">%1$s files in Safe Trash will be deleted for good. This cannot be undone.</item>
+    </plurals>
+    <plurals name="wg_screenshots">
+        <item quantity="one">%1$d Screenshot</item>
+        <item quantity="other">%1$d Screenshots</item>
+    </plurals>
+    <plurals name="wg_heavy_videos">
+        <item quantity="one">%1$d Heavy Video</item>
+        <item quantity="other">%1$d Heavy Videos</item>
+    </plurals>
+    <plurals name="st_days">
+        <item quantity="one">%1$d Day</item>
+        <item quantity="other">%1$d Days</item>
+    </plurals>
+    <plurals name="st_days_caps">
+        <item quantity="one">%1$d DAY</item>
+        <item quantity="other">%1$d DAYS</item>
+    </plurals>
+    <plurals name="diag_swipe_badge">
+        <item quantity="one">%1$d FILE</item>
+        <item quantity="other">%1$d FILES</item>
+    </plurals>
+    <plurals name="cx_videos_meta">
+        <item quantity="one">%1$d video · %2$s</item>
+        <item quantity="other">%1$d videos · %2$s</item>
+    </plurals>
+    <plurals name="cx_cta_pro">
+        <item quantity="one">Compress %1$d Video</item>
+        <item quantity="other">Compress %1$d Videos</item>
+    </plurals>
+    <plurals name="ga_items">
+        <item quantity="one">%1$s item</item>
+        <item quantity="other">%1$s items</item>
+    </plurals>
+</resources>

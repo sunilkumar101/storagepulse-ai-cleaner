@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher mark = the Play hi-res icon (promo-video/src/components/Logo.tsx):
+     an 88 %-full storage ring with the emerald pulse line, inside the adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- ring track -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,24 A30,30 0 1,1 53.99,24"
+        android:strokeWidth="6"
+        android:strokeColor="#1F2937" />
+    <!-- used arc (88 %), starting at 12 o'clock -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,24 A30,30 0 1,1 53.99,24"
+        android:strokeWidth="6"
+        android:strokeColor="#4EDEA3"
+        android:strokeLineCap="round"
+        android:trimPathEnd="0.88" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M34,56 L45,56 L49.5,44 L56.5,68 L62,51 L65.5,56 L74,56"
+        android:strokeWidth="5"
+        android:strokeColor="#4EDEA3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

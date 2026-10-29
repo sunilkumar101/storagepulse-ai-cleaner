@@ -1,0 +1,47 @@
+# StoragePulse AI: Google Play release automation (fastlane supply).
+#
+# One-time setup:  gem install bundler && bundle install
+# Upload:          bundle exec fastlane supply --aab app/build/outputs/bundle/release/app-release.aab
+#            or:   bundle exec fastlane release            (internal testing track, default)
+#                  bundle exec fastlane release track:production
+#
+# NOTE: Google Play cannot create a new app through the API. Create the app in Play Console and
+# upload the FIRST app-release.aab manually there; fastlane works for every later upload.
+
+default_platform(:android)
+
+AAB = "app/build/outputs/bundle/release/app-release.aab"
+
+platform :android do
+  before_all do
+    unless File.exist?(File.expand_path("../play-service-account.json", __dir__))
+      UI.user_error!("play-service-account.json is missing in the project root (Play Console > Setup > API access).")
+    end
+  end
+
+  desc "Build the signed AAB (needs keystore/keystore.properties)"
+  lane :build do
+    gradle(task: "clean bundleRelease", project_dir: ".")
+  end
+
+  desc "Upload AAB + full store listing, screenshots and graphics. Options: track (internal|alpha|beta|production)"
+  lane :release do |options|
+    track = options[:track] || "internal"
+    UI.user_error!("#{AAB} not found: run `fastlane android build` first") unless File.exist?(File.expand_path("../#{AAB}", __dir__))
+    upload_to_play_store(
+      track: track,
+      aab: AAB,
+      release_status: track == "production" ? "draft" : "completed",
+      metadata_path: "fastlane/metadata/android",
+      skip_upload_metadata: false,
+      skip_upload_changelogs: false,
+      skip_upload_images: false,
+      skip_upload_screenshots: false,
+    )
+  end
+
+  desc "Update only the store listing text and graphics (no new build)"
+  lane :listing do
+    upload_to_play_store(skip_upload_apk: true, skip_upload_aab: true, metadata_path: "fastlane/metadata/android")
+  end
+end

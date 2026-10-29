@@ -1,0 +1,27 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "promo-studio",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd promo-video && npx remotion studio --no-open --port 3000"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "docs-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8095",
+        "--directory",
+        "docs"
+      ],
+      "port": 8095,
+      "autoPort": false
+    }
+  ]
+}

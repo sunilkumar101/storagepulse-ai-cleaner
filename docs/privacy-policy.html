@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · StoragePulse AI</title>
+  <meta name="description" content="Privacy Policy for StoragePulse AI (com.storagepulse.cleaner). Your files are processed on your device and never uploaded.">
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><img src="icon.png" alt="">StoragePulse <b>AI</b></a>
+  <nav class="links">
+    <a href="index.html">Home</a>
+    <a href="privacy-policy.html" aria-current="page">Privacy</a>
+    <a href="data-safety.html">Data safety</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</div></header>
+
+<main><div class="wrap">
+  <span class="badge">Privacy Policy</span>
+  <h1>Your files never leave your phone.</h1>
+  <p class="meta">EFFECTIVE DATE: 29 OCTOBER 2026 · APP: STORAGEPULSE AI · PACKAGE: com.storagepulse.cleaner</p>
+
+  <div class="card key">
+    <p><strong>Short version.</strong> StoragePulse AI scans, maps, de-duplicates, compresses and encrypts your files
+    <strong>entirely on your device</strong>. Your photos, videos, documents, file names, folder structure, image fingerprints
+    (perceptual hashes) and app-usage information are processed in your phone's memory and its private app storage,
+    and are <strong>never transmitted to us or to any server</strong>. We do not run accounts, cloud backups or our own analytics.</p>
+    <p>The free version shows ads from <strong>Google AdMob</strong>, which collects some device and advertising data (section 5).
+    The optional one-time Pro upgrade is sold through <strong>Google Play Billing</strong> (section 6).</p>
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>StoragePulse AI ("the app", "we", "us") is published on Google Play by an independent developer.
+  Contact: <a href="mailto:skkhatri2024@gmail.com">skkhatri2024@gmail.com</a>.</p>
+
+  <h2>2. What the app works with on your device</h2>
+  <p>To do its job, the app reads information that stays on your phone:</p>
+  <ul>
+    <li><strong>Files and media on shared storage</strong> (photos, videos, audio, documents, APK files, WhatsApp / Telegram media folders):
+      their names, paths, sizes and dates, and for images small thumbnails, to build the storage map, find duplicates and
+      blurry shots, and offer clean-up.</li>
+    <li><strong>Image fingerprints</strong>: a 64-bit perceptual hash (dHash), a sharpness score and, for files of identical size,
+      a SHA-256 checksum. These are cached in the app's private database on your device so re-analysis is fast.</li>
+    <li><strong>App usage and app sizes</strong> (only if you allow Usage Access): when each installed app was last opened and how much
+      storage it uses, to list apps you have not opened for 30+ days.</li>
+    <li><strong>List of launchable installed apps</strong>, to show their sizes. We do not request <code>QUERY_ALL_PACKAGES</code>.</li>
+  </ul>
+  <p>All of this is processed <strong>locally, in device memory and app-private storage</strong>. None of it is sent off the device,
+  shared with third parties, sold, or used for advertising.</p>
+
+  <h2>3. Permissions and why we need them</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Permission</th><th>Why</th></tr>
+    <tr><td><code>MANAGE_EXTERNAL_STORAGE</code><br>(All files access)</td>
+      <td>StoragePulse AI is a disk-usage analyser and file cleaner. Measuring <em>every</em> folder is the core feature:
+      the full-device DiskUsage treemap / sunburst, cross-folder duplicate detection, cleanup of redundant WhatsApp / Telegram
+      media and leftover APK installers, the Safe Trash quarantine (files are moved, not deleted), and the video compressor that
+      replaces a video with its smaller copy. The Android media APIs cannot see documents, APKs, app media folders or folder sizes,
+      so without this access the map would be incomplete. You can decline and use <strong>Scoped Mode</strong> (photos and videos only).
+      Access can be revoked at any time in Android Settings.</td></tr>
+    <tr><td><code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, <code>READ_MEDIA_AUDIO</code>, <code>READ_MEDIA_VISUAL_USER_SELECTED</code></td>
+      <td>Scoped Mode on Android 13+: analyse only the media you allow.</td></tr>
+    <tr><td><code>PACKAGE_USAGE_STATS</code> (Usage Access)</td>
+      <td>Optional. Reads when each app was last opened and its storage size, to show the "Unused Heavy Apps" list. Read on-device only.</td></tr>
+    <tr><td><code>REQUEST_DELETE_PACKAGES</code></td>
+      <td>Opens Android's own uninstall confirmation when you tap "Uninstall" on an unused app. The app never uninstalls anything by itself.</td></tr>
+    <tr><td><code>USE_BIOMETRIC</code></td>
+      <td>Unlocks the Private Vault with your fingerprint, face or screen lock through the Android system prompt. We never see biometric data.</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td>
+      <td>Optional weekly clutter summary (off by default), generated on the device.</td></tr>
+    <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td>
+      <td>Used only by Google AdMob (ads) and Google Play Billing (purchases). File scanning never uses the network.</td></tr>
+    <tr><td><code>com.google.android.gms.permission.AD_ID</code> and Android ad-services permissions</td>
+      <td>Added by the Google Mobile Ads SDK to read the advertising ID for ads (section 5).</td></tr>
+  </table></div>
+
+  <h2>4. Data stored on your device</h2>
+  <ul>
+    <li><strong>Safe Trash</strong>: files you "delete" are moved to a hidden <code>.StoragePulseTrash</code> folder on the same storage and
+      kept restorable for 30 days (7, 30 or 60 days in Settings), then permanently deleted on the device. "Empty Trash" deletes them immediately after you confirm.</li>
+    <li><strong>Private Vault</strong>: files you move into the vault are encrypted with AES-256-GCM using a key held in the Android Keystore and stored in
+      the app's private folder. The vault is removed if you uninstall the app, so restore files first.</li>
+    <li><strong>Settings and caches</strong> (access mode, retention period, accent colour, image fingerprints, widget numbers, Pro status) stay in
+      the app's private storage and are deleted when you uninstall the app or clear its data. App data is excluded from Android cloud backup.</li>
+  </ul>
+
+  <h2>5. Advertising: Google AdMob</h2>
+  <p>The free version shows banner, interstitial and optional rewarded ads served by Google AdMob, a service of Google LLC / Google Ireland Ltd.
+  The Google Mobile Ads SDK may collect and process, under Google's own policies:</p>
+  <ul>
+    <li>Device identifiers, including the Android advertising ID and app-set ID;</li>
+    <li>IP address (used to estimate approximate location) and basic device information (model, OS version, language);</li>
+    <li>Ad interactions (impressions, clicks) and diagnostic / performance data about the SDK.</li>
+  </ul>
+  <p>This data is used for serving, measuring and limiting ads, fraud prevention and, where allowed, ad personalisation.
+  It does <strong>not</strong> include your files, file names or anything the app scans. In the EEA, UK and Switzerland, ad personalisation follows the
+  consent you give through Google's consent message. You can reset or delete your advertising ID, or opt out of personalised ads, in
+  <em>Android Settings → Privacy → Ads</em>. Buying Pro removes all ads; no ads are requested for Pro users.</p>
+  <p>Learn more: <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>
+  and <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+  <h2>6. Purchases: Google Play Billing</h2>
+  <p>"StoragePulse Pro" is an optional one-time purchase (US$2.99 or the local equivalent shown in Google Play). Payment is handled entirely by
+  Google Play. We never receive your card or payment details. The app only receives a purchase token and status from Google Play to unlock and
+  restore Pro on your devices. See the <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice">Google Payments Privacy Notice</a>.</p>
+
+  <h2>7. What we do not do</h2>
+  <ul>
+    <li>No user accounts, sign-in or cloud sync.</li>
+    <li>No upload of photos, videos, files, file names, folder trees or fingerprints.</li>
+    <li>No sale or sharing of personal data. No data brokers.</li>
+    <li>No analytics or crash-reporting SDK of our own.</li>
+  </ul>
+
+  <h2>8. Children</h2>
+  <p>The app is not directed to children under 13 and is not designed for the Google Play "Families" programme. We do not knowingly collect data from children.</p>
+
+  <h2>9. Security</h2>
+  <p>Your files stay under Android's storage protection. Vault files are encrypted with AES-256-GCM. Network traffic of Google AdMob and Google Play
+  is encrypted in transit by Google.</p>
+
+  <h2>10. Your choices and rights</h2>
+  <ul>
+    <li>Revoke All files access, media access, Usage Access or notifications at any time in Android Settings.</li>
+    <li>Delete all app data by clearing storage or uninstalling the app (restore Vault files first).</li>
+    <li>Control ads personalisation through Android's ad settings or the consent message.</li>
+    <li>Because we hold no personal data on servers, there is nothing for us to export or erase; contact us with any question.</li>
+  </ul>
+
+  <h2>11. Changes</h2>
+  <p>We will update this page when the app's data handling changes and change the effective date above.</p>
+
+  <h2>12. Contact</h2>
+  <p>Email <a href="mailto:skkhatri2024@gmail.com">skkhatri2024@gmail.com</a>.</p>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  © 2026 StoragePulse AI · <a href="privacy-policy.html">Privacy</a> · <a href="data-safety.html">Data safety</a> · <a href="terms.html">Terms</a>
+</div></footer>
+</body>
+</html>

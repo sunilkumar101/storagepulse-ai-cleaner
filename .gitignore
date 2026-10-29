@@ -1,0 +1,40 @@
+# Reference repos (read-only inspiration, never shipped)
+/reference_repos/
+
+# Promo video (Remotion)
+/promo-video/node_modules/
+/promo-video/out/
+
+# Android / Gradle build output
+/build/
+**/build/
+.gradle/
+local.properties
+
+# Signing + Play credentials — never commit
+*.jks
+*.keystore
+play-service-account.json
+
+# Upload keystore folder: .jks, passwords, gradle signing properties
+/keystore/
+keystore.properties
+KEYSTORE_CREDENTIALS.txt
+
+# Local tooling (third-party agent skills, IDE/Kotlin caches, local launch configs)
+/.agents/
+/.claude/skills/
+/.claude/settings.local.json
+/.kotlin/
+skills-lock.json
+
+# Real-phone audit screenshots (may show personal storage details); framed store assets are committed
+/playstore_assets/raw_screenshots/
+/promo-video/public/screens/
+
+# Fastlane local output
+/fastlane/report.xml
+/fastlane/README.md
+
+# Local logs
+*.log

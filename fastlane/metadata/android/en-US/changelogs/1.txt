@@ -1,0 +1,9 @@
+StoragePulse AI 1.0.0, first release:
+• Disk usage treemap & sunburst of your whole storage
+• AI duplicate, burst & blurry photo cleaner with Smart Keeper
+• Swipe-to-clean for large videos
+• H.265 video compressor with before/after preview
+• WhatsApp & Telegram media cleaner
+• Fast offline gallery, GPS removal & AES-256 photo vault
+• 30-day Safe Trash, unused apps finder, 3 home screen widgets
+All files are processed on your device.

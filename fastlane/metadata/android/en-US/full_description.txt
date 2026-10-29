@@ -1,0 +1,68 @@
+Phone storage full? StoragePulse AI shows you exactly where every GB went and helps you free space safely. It is a visual disk usage analyzer, duplicate photo remover, H.265 video compressor and private photo vault in one app, and every file is processed on your phone. Nothing is uploaded.
+
+📊 DISK USAGE ANALYZER & STORAGE TREEMAP
+• Interactive disk usage treemap and sunburst chart of your whole internal storage
+• Folder size explorer: tap any block to drill down, see the biggest folders and files instantly
+• Inspector shows wasted space, file counts and the last change for every folder
+• Breadcrumbs, zoom out with Back, and one-tap purge of redundant files
+• Live dashboard: used, free and safe-to-clean space with a colour category bar (videos, photos, WhatsApp, apps, system)
+
+🧠 AI DUPLICATE PHOTO REMOVER
+• Finds exact duplicates (bit-identical checksum) and similar burst shots (perceptual hashing)
+• Detects blurry photos with an on-device sharpness score
+• Smart Keeper always keeps the sharpest, best shot of every group; it never selects all copies
+• Compare Loupe: zoom two photos side by side before you decide
+• Filter chips for exact duplicates, burst shots, blurry photos and old screenshots
+
+👆 SWIPE TO CLEAN PHOTOS & VIDEOS
+• Review your largest videos one card at a time, largest first
+• Swipe up to send to Safe Trash, swipe down to keep, Undo anytime
+• Preview the video in place, or send it straight to the compressor
+
+🎬 H.265 VIDEO COMPRESSOR
+• Shrink heavy phone videos with hardware HEVC (H.265) encoding, H.264 fallback
+• Real before/after compare slider on an encoded frame, with the projected size before you start
+• Three quality tiers, batch compression, originals kept in Safe Trash for 30 days
+
+💬 WHATSAPP MEDIA CLEANER
+• Finds WhatsApp sent copies, statuses, old voice notes and media by age
+• WhatsApp, WhatsApp Business and Telegram tabs with age filters (30 days, 6 months)
+• Your gallery originals are never touched
+
+🖼️ FAST OFFLINE GALLERY & BIOMETRIC PHOTO VAULT
+• Fast offline gallery: albums or camera roll, search, sort and 2x/3x/4x grid
+• Private vault encrypted with AES-256-GCM, unlocked with fingerprint, face or screen lock
+• Remove GPS location from photos before you share them
+• Crop with pinch to zoom, saved as a new copy
+
+🗑️ 30-DAY SAFE TRASH (NOTHING IS DELETED INSTANTLY)
+• Every clean-up moves files to Safe Trash first, restorable for 7, 30 or 60 days
+• Restore one file or everything; Empty Trash always asks first and shows the size
+
+📱 UNUSED APPS & STORAGE TOOLS
+• Find heavy apps you have not opened for 30+ days, with app, data and cache size
+• Spot old .apk installers in Download and Telegram folders
+• Open the Android uninstall or app info screen in one tap
+
+🏠 HOME SCREEN WIDGETS
+• StoragePulse 4x2: used storage, category bar and Boost
+• Daily Clutter 2x2: screenshots and heavy videos, Swipe to Purge
+• Minimal Dock Strip 4x1: free space, Safe Trash and Rescan
+• Optional weekly clutter summary notification (off by default)
+
+🔒 PRIVACY FIRST
+• Photos, videos, file names, folder trees and image fingerprints are processed on your device and never transmitted
+• No account, no cloud sync, no analytics of our own
+• The free version shows ads from Google AdMob; StoragePulse Pro removes them
+
+⭐ STORAGEPULSE PRO (ONE-TIME PURCHASE)
+• No ads, forever
+• Batch compression with no ad in front
+• All home screen widget layouts
+• One payment through Google Play, no subscription
+
+WHY ALL FILES ACCESS?
+StoragePulse AI is a disk usage analyzer and file cleaner. To measure every folder, find duplicates across folders, clean leftover APKs and chat media, and move files to Safe Trash, it asks for "All files access" on Android 11 and newer. You can decline and use Scoped Mode (photos and videos only). Usage Access is optional and only used for the unused apps list.
+
+Privacy Policy: https://sunilkumar101.github.io/storagepulse-ai-cleaner/privacy-policy.html
+Contact: skkhatri2024@gmail.com

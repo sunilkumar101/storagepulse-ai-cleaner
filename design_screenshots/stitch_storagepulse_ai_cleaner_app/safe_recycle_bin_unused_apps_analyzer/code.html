@@ -1,0 +1,381 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed": "#07006c", "tertiary-fixed-dim": "#ffb95f", "surface-container-low": "#181b25", "on-secondary": "#1000a9", "on-secondary-container": "#b0b2ff", "outline-variant": "#3c4a42", "on-background": "#dfe2ef", "primary-fixed-dim": "#4edea3", "on-primary-container": "#00422b", "on-primary": "#003824", "on-tertiary-fixed": "#2a1700", "on-primary-fixed": "#002113", "secondary-container": "#3131c0", "secondary-fixed": "#e1e0ff", "surface-container": "#1c1f29", "on-secondary-fixed-variant": "#2f2ebe", "error-container": "#93000a", "inverse-surface": "#dfe2ef", "surface-container-high": "#262a34", "on-surface": "#dfe2ef", "on-tertiary": "#472a00", "on-error": "#690005", "on-surface-variant": "#bbcabf", "primary-fixed": "#6ffbbe", "outline": "#86948a", "on-tertiary-container": "#523200", "error": "#ffb4ab", "surface-tint": "#4edea3", "surface-dim": "#0f131c", "surface-container-lowest": "#0a0e17", "primary-container": "#10b981", "surface": "#0f131c", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-on-surface": "#2c303a", "tertiary-container": "#e29100", "surface-variant": "#31353f", "secondary": "#c0c1ff", "surface-bright": "#353943", "on-error-container": "#ffdad6", "inverse-primary": "#006c49", "tertiary": "#ffb95f", "primary": "#4edea3", "secondary-fixed-dim": "#c0c1ff", "background": "#0f131c", "on-primary-fixed-variant": "#005236", "surface-container-highest": "#31353f" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "margin": "1rem" }, "fontFamily": { "label-caps": ["JetBrains Mono"], "body-lg": ["Plus Jakarta Sans"], "telemetry-sm": ["JetBrains Mono"], "headline-xl": ["Plus Jakarta Sans"], "telemetry-xl": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "telemetry-md": ["JetBrains Mono"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "telemetry-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "telemetry-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "telemetry-xl": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "telemetry-md": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "telemetry-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.45)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="StoragePulse AI App Icon" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VnxC7_jXEURoFLDCIjVqHzyR0qKyXUIbuuya6Ij7lax7yj6_t9P02tUL72y1hMM6_ia3qwVX9MkOjJsoOUKXR19kt3vdxhw1rOrWm3InVqmNEKpBRlXQLkLzNkHyiTdAsJqKR6gPDZgFKBqNv56mAAzEocKmDpZZUqBh6-wmKYtMx8Y66PzzgdY6aUu8A-dWz7Caw0DfVYsZWT4YqquVSsbwywKXU57RORp0C0hjjFkYtBZb5VSS-tLA"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface truncate">StoragePulse</span><span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded-full bg-primary/10 text-primary shrink-0">PRO</span></div><span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant truncate">System Tools &amp; Optimizer</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">filter_list</span></button><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">search</span></button><div class="relative flex items-center justify-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY38j5qfN6Xha6OpqLj6Vl3xRfloJG1CvY_bdrBfy1ANaOUckCKyaTYVBN4k_Fbf8kLgoRdQhIbB-Vz7r5mnbEHujdjNP74pYhQ1wiiHg5JjnBqvwA6G3IooPF7yj0RQyJGuL3eBlDu4Lmql7lRcoHd7KfRhE_7GdQAR91NwVHkwk5R2mUD3FAGSMpcJPjfK5jIouiib4GFfvZt1a_uEYVh6C3rbmdqGbHUQGI3eQWI9Mtz8-XV3XV"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top View Telemetry Bar -->
+<div class="px-margin pt-space-xs pb-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">App Space &amp; Safe Trash</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-primary hover:bg-surface-container-highest transition-colors active:scale-95" id="rescan-trigger">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+<span class="font-telemetry-sm text-telemetry-sm uppercase">Rescan</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        UsageStats &amp; Quarantine Sandbox • 100% Offline
+      </p>
+<span class="font-telemetry-sm text-telemetry-sm text-outline-variant">Android 14 API</span>
+</div>
+</div>
+<!-- Segmented Switcher & Category Ribbon -->
+<div class="px-margin mb-space-md flex flex-col gap-space-sm">
+<!-- Primary Switcher Pill -->
+<div class="p-1 rounded-xl bg-surface-container-lowest grid grid-cols-2 gap-1 shadow-inner">
+<button class="tab-btn flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm font-semibold shadow-sm transition-all" id="tab-heavy-apps" onclick="switchSection('apps')">
+<span class="material-symbols-outlined text-[18px] text-tertiary">apps</span>
+<span class="">Unused Heavy Apps</span>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded-full">36.3G</span>
+</button>
+<button class="tab-btn flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm font-semibold transition-all" id="tab-safe-trash" onclick="switchSection('trash')">
+<span class="material-symbols-outlined text-[18px] text-error">auto_delete</span>
+<span class="">Safe Trash Bin</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error bg-error/10 px-1.5 py-0.5 rounded-full">4.28G</span>
+</button>
+</div>
+<!-- Quick Filter Telemetry Pills (Horizontal Scroll) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-nowrap">
+<button class="px-2.5 py-1 rounded-full bg-primary/15 text-primary font-telemetry-sm text-telemetry-sm flex items-center gap-1 shrink-0 active:scale-95 transition-transform"><span class="material-symbols-outlined text-[13px]">dataset</span> All Heavy Items (40.58 GB)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm flex items-center gap-1 shrink-0 active:scale-95 transition-transform"><span class="material-symbols-outlined text-[13px] text-tertiary">history_toggle_off</span> Unopened &gt; 30d (36.3 GB)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm flex items-center gap-1 shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[13px] text-secondary">cleaning_services</span> App Caches (7.7 GB)
+      </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm flex items-center gap-1 shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[13px] text-error">shield_locked</span> Quarantined (4.28 GB)
+      </button>
+</div>
+</div>
+<div class="px-margin flex flex-col gap-space-lg">
+<!-- Telemetry Master Summary Card -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-xl relative overflow-hidden flex flex-col gap-space-sm">
+<div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Total Reclaimable Space</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-telemetry-xl text-telemetry-xl text-primary font-bold">40.58</span>
+<span class="font-headline-md text-headline-md font-semibold text-primary">GB</span>
+<span class="font-label-caps text-label-caps px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold ml-1">READY TO PURGE</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[26px] text-primary" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+</div>
+<!-- Segmented Breakdown Bar -->
+<div class="flex flex-col gap-1.5 mt-1">
+<div class="h-3 w-full rounded-full bg-surface-container-lowest overflow-hidden flex p-0.5 gap-0.5">
+<!-- Unused apps 80% -->
+<div class="h-full rounded-full bg-gradient-to-r from-secondary-container via-tertiary to-tertiary-fixed-dim" style="width: 79%;"></div>
+<!-- Safe Trash 20% -->
+<div class="h-full rounded-full bg-error" style="width: 21%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="">36.3 GB Unused Apps &amp; Bloat</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="">4.28 GB Quarantine Trash</span>
+</div>
+</div>
+</div>
+<!-- Telemetry API Guarantee Tag -->
+<div class="mt-1 pt-2 flex items-center gap-1.5 text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">lock_clock</span>
+<span class="">StorageStatsManager API • No Root Required • Zero Uploads</span>
+</div>
+</div>
+<!-- SECTION 1: Rarely Used Space-Hog Apps -->
+<section class="flex flex-col gap-space-sm" id="section-apps">
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Unopened Apps &gt; 30 Days</h2>
+<span class="font-label-caps text-label-caps px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary font-bold">3 APPS • 36.3 GB</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Scanned via UsageStatsManager • Sorted by footprint</p>
+</div>
+</div>
+<!-- App Card 1: Genshin Impact -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-space-sm relative overflow-hidden transition-all hover:bg-surface-container">
+<div class="flex items-start gap-3">
+<div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-secondary-container via-surface-container-highest to-surface-container-lowest p-2.5 flex items-center justify-center shadow-lg shrink-0">
+<span class="material-symbols-outlined text-[28px] text-secondary" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface truncate">Genshin Impact</h3>
+<span class="font-telemetry-md text-telemetry-md font-bold text-error shrink-0">24.8 GB</span>
+</div>
+<p class="font-telemetry-sm text-telemetry-sm text-on-surface-variant mt-0.5">v4.8 • Base: 4.2 GB • User Data: 19.8 GB • Cache: 0.8 GB</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary font-telemetry-sm text-telemetry-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">alarm</span> Unused for 62 Days
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+                Assets: 80%
+              </span>
+</div>
+</div>
+</div>
+<!-- Proportional Asset Bar -->
+<div class="w-full flex flex-col gap-1">
+<div class="h-1.5 w-full bg-surface-container-lowest rounded-full overflow-hidden flex gap-0.5">
+<div class="h-full bg-secondary" style="width: 17%;"></div>
+<div class="h-full bg-tertiary" style="width: 80%;"></div>
+<div class="h-full bg-outline" style="width: 3%;"></div>
+</div>
+<div class="flex justify-between font-telemetry-sm text-telemetry-sm text-outline">
+<span class="">App Binaries (4.2 GB)</span>
+<span class="">Downloaded Shaders &amp; World Assets (19.8 GB)</span>
+</div>
+</div>
+<!-- Action Row -->
+<div class="grid grid-cols-2 gap-2 mt-1">
+<button class="py-2.5 px-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors font-body-sm text-body-sm font-medium flex items-center justify-center gap-1.5 active:scale-95" onclick="triggerMicroAction(this, 'Cache Cleared (+820 MB)')">
+<span class="material-symbols-outlined text-[16px] text-primary">cleaning_services</span>
+<span class="">Clear Cache (820 MB)</span>
+</button>
+<button class="py-2.5 px-3 rounded-xl bg-error-container text-[#ffffff] hover:opacity-90 transition-opacity font-body-sm text-body-sm font-semibold flex items-center justify-center gap-1.5 active:scale-95" onclick="triggerMicroAction(this, 'Uninstall Requested')"><span class="material-symbols-outlined text-[16px] text-[#ffffff]">delete_forever</span><span class="text-[#ffffff]">Uninstall &amp; Free 24.8G</span></button>
+</div>
+</div>
+<!-- App Card 2: CapCut Video Editor -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-space-sm relative overflow-hidden transition-all hover:bg-surface-container">
+<div class="flex items-start gap-3">
+<div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-secondary via-surface-container-high to-surface-container-lowest p-2.5 flex items-center justify-center shadow-lg shrink-0">
+<span class="material-symbols-outlined text-[28px] text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">movie_edit</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface truncate">CapCut Video Editor</h3>
+<span class="font-telemetry-md text-telemetry-md font-bold text-tertiary shrink-0">8.4 GB</span>
+</div>
+<p class="font-telemetry-sm text-telemetry-sm text-on-surface-variant mt-0.5">Total: 8.4 GB • Draft Render Cache: 6.9 GB • App: 1.5 GB</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary-fixed font-telemetry-sm text-telemetry-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">alarm</span> Unused for 19 Days
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-telemetry-sm text-telemetry-sm">
+                Safe to Purge Cache
+              </span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-5 gap-2 mt-1">
+<button class="col-span-3 py-2.5 px-3 rounded-xl bg-primary text-on-primary font-body-sm text-body-sm font-bold flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-transform" onclick="triggerMicroAction(this, 'Purged 6.9 GB Drafts!')">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="">Clean 6.9 GB (Keep App)</span>
+</button>
+<button class="col-span-2 py-2.5 px-2 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm font-medium flex items-center justify-center gap-1 active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span class="">Hibernate</span>
+</button>
+</div>
+</div>
+<!-- App Card 3: Obsolete Downloaded Installers -->
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-space-sm relative overflow-hidden transition-all hover:bg-surface-container">
+<div class="flex items-start gap-3">
+<div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-tertiary-container via-surface-container-high to-surface-container-lowest p-2.5 flex items-center justify-center shadow-lg shrink-0">
+<span class="material-symbols-outlined text-[28px] text-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface truncate">Obsolete Installers</h3>
+<span class="font-telemetry-md text-telemetry-md font-bold text-tertiary shrink-0">3.1 GB</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">14 stale .apk / .xapk packages in /Download/ &amp; /Telegram/</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container/30 text-error font-telemetry-sm text-telemetry-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">warning</span> Already Installed or Outdated
+              </span>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 px-4 rounded-xl bg-surface-container-highest text-tertiary hover:bg-surface-bright font-body-sm text-body-sm font-bold flex items-center justify-center gap-2 active:scale-95 transition-all" onclick="triggerMicroAction(this, '14 APKs Deleted (+3.1 GB)')">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span class="">Delete All 14 Stale APKs (Free 3.1 GB)</span>
+</button>
+</div>
+</section>
+<!-- SECTION 2: 30-Day Safe Quarantine Recycle Bin -->
+<section class="flex flex-col gap-space-sm mb-4" id="section-trash">
+<div class="p-space-md rounded-2xl bg-surface-container-low shadow-xl relative overflow-hidden flex flex-col gap-space-md">
+<!-- Glow accent on corner -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-error/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Section Header Inside Card -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-error-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-error" style="font-variation-settings: 'FILL' 1;">shield_locked</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Safe 30-Day Recycle Bin</h2>
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+</div>
+<p class="font-telemetry-sm text-telemetry-sm text-error font-medium mt-0.5">4.28 GB • 218 Files In Sandbox</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps px-2 py-1 rounded-md bg-surface-container-highest text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">timer</span> 4 DAYS LEFT
+            </span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant block mt-1">Oldest purge</span>
+</div>
+</div>
+<!-- Informative Sandbox Banner -->
+<div class="p-2.5 rounded-xl bg-surface-container-lowest/80 flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+            Zero cloud uploads. Quarantined on-device. Fully recoverable before 30-day zero-fill scrub.
+          </span>
+</div>
+<!-- Quarantined Files Preview List -->
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps uppercase text-outline tracking-wider">Recent Items In Quarantine</span>
+<!-- Item 1 -->
+<div class="p-2.5 rounded-xl bg-surface-container flex items-center justify-between gap-2 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0">video_file</span>
+<div class="min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">VID_2026_Drone_4K.mp4</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">612 MB • 26 days retention remaining</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-primary font-telemetry-sm text-telemetry-sm font-semibold hover:bg-primary/20 transition-colors active:scale-95 shrink-0" onclick="restoreItem(this)">
+              Restore
+            </button>
+</div>
+<!-- Item 2 -->
+<div class="p-2.5 rounded-xl bg-surface-container flex items-center justify-between gap-2 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[20px] text-tertiary shrink-0">folder_zip</span>
+<div class="min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">WhatsApp_VoiceNotes_Aug.zip</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">340 MB • 18 days retention remaining</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-primary font-telemetry-sm text-telemetry-sm font-semibold hover:bg-primary/20 transition-colors active:scale-95 shrink-0" onclick="restoreItem(this)">
+              Restore
+            </button>
+</div>
+<!-- Item 3 -->
+<div class="p-2.5 rounded-xl bg-surface-container flex items-center justify-between gap-2 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[20px] text-error shrink-0">photo_library</span>
+<div class="min-w-0 flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Screenshots_Old_Batch.tar</span>
+<span class="font-telemetry-sm text-telemetry-sm text-error font-medium">184 MB • 4 days left before auto-purge</span>
+</div>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-highest text-primary font-telemetry-sm text-telemetry-sm font-semibold hover:bg-primary/20 transition-colors active:scale-95 shrink-0" onclick="restoreItem(this)">
+              Restore
+            </button>
+</div>
+</div>
+<!-- Dual Action Buttons -->
+<div class="grid grid-cols-5 gap-2 pt-2">
+<button class="col-span-2 py-3 px-3 rounded-xl bg-surface-container-high text-primary font-body-sm text-body-sm font-bold flex items-center justify-center gap-1 active:scale-95 transition-all hover:bg-surface-container-highest" onclick="triggerToast('All 218 files marked for selective recovery')">
+<span class="material-symbols-outlined text-[18px]">undo</span>
+<span class="">Restore All</span>
+</button>
+<button class="col-span-3 py-3 px-3 rounded-xl bg-error text-on-error font-body-sm text-body-sm font-bold flex items-center justify-center gap-1.5 shadow-lg active:scale-95 transition-all hover:opacity-95" onclick="emptyTrash()">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="">Empty Trash (4.28 GB)</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Toast Notification Feedback Area -->
+<div class="fixed bottom-20 left-4 right-4 z-50 transform translate-y-32 transition-transform duration-300 pointer-events-none" id="toast">
+<div class="p-3 rounded-xl bg-surface-container-highest shadow-2xl flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="font-body-sm text-body-sm font-semibold" id="toast-text">Action completed successfully</span>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-primary uppercase font-bold">READY</span>
+</div>
+</div>
+</div>
+<script>
+  function switchSection(target) {
+    const appsBtn = document.getElementById('tab-heavy-apps');
+    const trashBtn = document.getElementById('tab-safe-trash');
+    const appsSec = document.getElementById('section-apps');
+    const trashSec = document.getElementById('section-trash');
+
+    if (target === 'apps') {
+      appsBtn.classList.add('bg-surface-container-high', 'text-on-surface');
+      appsBtn.classList.remove('text-on-surface-variant');
+      trashBtn.classList.remove('bg-surface-container-high', 'text-on-surface');
+      trashBtn.classList.add('text-on-surface-variant');
+      appsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      trashBtn.classList.add('bg-surface-container-high', 'text-on-surface');
+      trashBtn.classList.remove('text-on-surface-variant');
+      appsBtn.classList.remove('bg-surface-container-high', 'text-on-surface');
+      appsBtn.classList.add('text-on-surface-variant');
+      trashSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function triggerToast(message) {
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    toastText.textContent = message;
+    toast.classList.remove('translate-y-32');
+    toast.classList.add('translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0');
+      toast.classList.add('translate-y-32');
+    }, 2800);
+  }
+
+  function triggerMicroAction(btn, feedback) {
+    btn.disabled = true;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span> Processing...';
+    setTimeout(() => {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">done</span> ${feedback}`;
+      triggerToast(feedback);
+    }, 700);
+  }
+
+  function restoreItem(btn) {
+    const parentRow = btn.closest('.p-2\\.5');
+    btn.textContent = 'Restored';
+    btn.classList.add('bg-primary', 'text-on-primary');
+    triggerToast('File safely restored to original storage partition');
+    setTimeout(() => {
+      parentRow.style.opacity = '0.3';
+      btn.disabled = true;
+    }, 400);
+  }
+
+  function emptyTrash() {
+    if (confirm('Permanently purge 4.28 GB from safe sandbox? This action performs secure zero-fill and cannot be undone.')) {
+      triggerToast('Quarantine sandbox permanently sanitized & empty (+4.28 GB Free)');
+    }
+  }
+
+  document.getElementById('rescan-trigger')?.addEventListener('click', function() {
+    triggerToast('Re-indexing local StorageStatsManager metrics...');
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(0,0,0,0.55)]" data-active-classes="text-primary [&amp;_.indicator-dot]:opacity-100"><div class="grid grid-cols-5 items-center h-16 px-1"><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">speed</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Dashboard</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="treemap" href="#"><span class="material-symbols-outlined text-[22px]">account_tree</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Treemap</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="ai-clean" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-body-sm text-body-sm font-medium tracking-tight">AI Clean</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="gallery-vault" href="#"><span class="material-symbols-outlined text-[22px]">lock</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Gallery</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="tools" href="#"><span class="material-symbols-outlined text-[22px]">build_circle</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Tools</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a></div></nav>
+
+</body></html>

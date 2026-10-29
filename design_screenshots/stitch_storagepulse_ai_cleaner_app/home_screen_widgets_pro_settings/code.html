@@ -1,0 +1,372 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed": "#07006c", "tertiary-fixed-dim": "#ffb95f", "surface-container-low": "#181b25", "on-secondary": "#1000a9", "on-secondary-container": "#b0b2ff", "outline-variant": "#3c4a42", "on-background": "#dfe2ef", "primary-fixed-dim": "#4edea3", "on-primary-container": "#00422b", "on-primary": "#003824", "on-tertiary-fixed": "#2a1700", "on-primary-fixed": "#002113", "secondary-container": "#3131c0", "secondary-fixed": "#e1e0ff", "surface-container": "#1c1f29", "on-secondary-fixed-variant": "#2f2ebe", "error-container": "#93000a", "inverse-surface": "#dfe2ef", "surface-container-high": "#262a34", "on-surface": "#dfe2ef", "on-tertiary": "#472a00", "on-error": "#690005", "on-surface-variant": "#bbcabf", "primary-fixed": "#6ffbbe", "outline": "#86948a", "on-tertiary-container": "#523200", "error": "#ffb4ab", "surface-tint": "#4edea3", "surface-dim": "#0f131c", "surface-container-lowest": "#0a0e17", "primary-container": "#10b981", "surface": "#0f131c", "tertiary-fixed": "#ffddb8", "on-tertiary-fixed-variant": "#653e00", "inverse-on-surface": "#2c303a", "tertiary-container": "#e29100", "surface-variant": "#31353f", "secondary": "#c0c1ff", "surface-bright": "#353943", "on-error-container": "#ffdad6", "inverse-primary": "#006c49", "tertiary": "#ffb95f", "primary": "#4edea3", "secondary-fixed-dim": "#c0c1ff", "background": "#0f131c", "on-primary-fixed-variant": "#005236", "surface-container-highest": "#31353f" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "gutter": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "margin": "1rem" }, "fontFamily": { "label-caps": ["JetBrains Mono"], "body-lg": ["Plus Jakarta Sans"], "telemetry-sm": ["JetBrains Mono"], "headline-xl": ["Plus Jakarta Sans"], "telemetry-xl": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "telemetry-md": ["JetBrains Mono"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "telemetry-lg": ["JetBrains Mono"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "telemetry-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "telemetry-xl": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "telemetry-md": ["14px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "telemetry-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.45)] pt-safe"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="StoragePulse AI App Icon" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VnxC7_jXEURoFLDCIjVqHzyR0qKyXUIbuuya6Ij7lax7yj6_t9P02tUL72y1hMM6_ia3qwVX9MkOjJsoOUKXR19kt3vdxhw1rOrWm3InVqmNEKpBRlXQLkLzNkHyiTdAsJqKR6gPDZgFKBqNv56mAAzEocKmDpZZUqBh6-wmKYtMx8Y66PzzgdY6aUu8A-dWz7Caw0DfVYsZWT4YqquVSsbwywKXU57RORp0C0hjjFkYtBZb5VSS-tLA"><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface truncate">StoragePulse</span><span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded-full bg-primary/10 text-primary shrink-0">PRO</span></div><span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant truncate">System Tools &amp; Optimizer</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">filter_list</span></button><button class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">search</span></button><div class="relative flex items-center justify-center pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY38j5qfN6Xha6OpqLj6Vl3xRfloJG1CvY_bdrBfy1ANaOUckCKyaTYVBN4k_Fbf8kLgoRdQhIbB-Vz7r5mnbEHujdjNP74pYhQ1wiiHg5JjnBqvwA6G3IooPF7yj0RQyJGuL3eBlDu4Lmql7lRcoHd7KfRhE_7GdQAR91NwVHkwk5R2mUD3FAGSMpcJPjfK5jIouiib4GFfvZt1a_uEYVh6C3rbmdqGbHUQGI3eQWI9Mtz8-XV3XV"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Header Context Badge & Title -->
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-telemetry-sm text-telemetry-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(78,222,163,0.9)] animate-pulse"></span>
+<span class="">GLANCE API v2.4 ACTIVE</span>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">API LEVEL 34+</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-surface tracking-tight">Widgets &amp; Pro</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Jetpack Glance Live Interactive Widgets • Android 14+</p>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[24px]">widgets</span>
+</div>
+</div>
+</div>
+<!-- SECTION 1: Live Interactive Widget Showcase -->
+<div class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">preview</span>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Glance Widget Gallery</h2>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm text-tertiary">3 LIVE STYLES</span>
+</div>
+<!-- Phone Wallpaper Mock Canvas Container -->
+<div class="relative rounded-2xl bg-surface-container-lowest p- space-y-space-md overflow-hidden p-3.5 shadow-xl">
+<!-- Ambient Wallpaper Mesh Lighting -->
+<div class="absolute -top-24 -right-20 w-64 h-64 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-20 w-64 h-64 rounded-full bg-primary-container/15 blur-3xl pointer-events-none"></div>
+<!-- WIDGET 1: 4x2 Treemap & Quick Boost -->
+<div class="relative flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Preview • Form Factor 4×2</span>
+<span class="font-telemetry-sm text-telemetry-sm text-primary">Dynamic Glance State</span>
+</div>
+<!-- Glassmorphic 4x2 Widget Surface -->
+<div class="relative bg-surface-container-low/95 rounded-2xl p-4 shadow-xl backdrop-blur-xl">
+<!-- Widget Header Bar -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">pie_chart</span>
+</div>
+<span class="font-headline-md text-[14px] font-bold text-on-surface tracking-tight">StoragePulse</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-telemetry-sm text-telemetry-sm font-semibold text-on-surface">114.2 / 128 GB</span>
+<span class="font-telemetry-sm text-[10px] text-tertiary font-bold">(89%)</span>
+</div>
+</div>
+<!-- Segmented Telemetry Treemap Bar -->
+<div class="flex flex-col gap-1.5 mb-3.5">
+<div class="h-3 w-full rounded-full bg-surface-container flex overflow-hidden p-0.5 gap-0.5">
+<div class="h-full bg-error rounded-l-full" style="width: 44%;" title="Videos: 56.4 GB"></div>
+<div class="h-full bg-primary" style="width: 22%;" title="Photos: 28.1 GB"></div>
+<div class="h-full bg-secondary" style="width: 14%;" title="WhatsApp: 17.9 GB"></div>
+<div class="h-full bg-tertiary" style="width: 9%;" title="Apps: 11.5 GB"></div>
+<div class="h-full bg-surface-variant rounded-r-full" style="width: 11%;" title="System: 14.1 GB"></div>
+</div>
+<!-- Legend Pills -->
+<div class="flex items-center justify-between text-[10px] font-telemetry-sm text-on-surface-variant pt-0.5">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Videos</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Photos</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>WA</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Apps</span>
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>Sys</span>
+</div>
+</div>
+<!-- Quick Action interactive trigger -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Recoverable Cache</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-bold">6.42 GB Ready</span>
+</div>
+<button class="relative group flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-primary text-on-primary font-body-sm text-body-sm font-bold shadow-[0_0_16px_rgba(78,222,163,0.35)] active:scale-95 transition-all" id="boost-btn-1">
+<span class="material-symbols-outlined text-[16px] group-hover:rotate-12 transition-transform">bolt</span>
+<span id="boost-btn-text" class="">Boost 6.4 GB</span>
+</button>
+</div>
+</div>
+<!-- Add Widget Action -->
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center gap-2 font-body-sm text-body-sm font-semibold transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">add_to_home_screen</span>
+<span class="">+ Add 4×2 Widget to Home Screen</span>
+</button>
+</div>
+<div class="h-px w-full bg-surface-container-high/60 my-1"></div>
+<!-- WIDGET 2: 2x2 Daily Clutter Swipe Pill -->
+<div class="relative flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Preview • Form Factor 2×2</span>
+<span class="font-telemetry-sm text-telemetry-sm text-secondary">Swipe Gestures Enabled</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Glassmorphic 2x2 Widget Card -->
+<div class="bg-surface-container-low/95 rounded-2xl p-4 shadow-xl backdrop-blur-xl flex flex-col justify-between h-48">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase block">Daily Clutter</span>
+<span class="font-telemetry-lg text-telemetry-lg font-bold text-on-surface mt-0.5 block">380 MB</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">auto_delete</span>
+</div>
+</div>
+<!-- Badges -->
+<div class="flex flex-col gap-1.5 my-auto">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">screenshot</span>
+<span class="">12 Screenshots</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-surface-container text-on-surface-variant font-telemetry-sm text-telemetry-sm">
+<span class="material-symbols-outlined text-[14px] text-error">movie</span>
+<span class="">3 Heavy Video Clips</span>
+</div>
+</div>
+<!-- Glance Interactive Swipe Button -->
+<button class="w-full py-2 px-2.5 rounded-lg bg-secondary-container/40 hover:bg-secondary-container/60 text-secondary font-body-sm text-body-sm font-semibold flex items-center justify-between transition-all group active:scale-95">
+<span class="">Swipe to Purge</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Feature Description Card companion on wider display / stack on mobile -->
+<div class="bg-surface-container rounded-2xl p-4 flex flex-col justify-between">
+<div class="space-y-1.5">
+<div class="inline-flex items-center gap-1 text-primary font-telemetry-sm text-telemetry-sm">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+<span class="">GLANCE ACTION HANDLER</span>
+</div>
+<h3 class="font-headline-md text-[15px] font-bold text-on-surface">Interactive On-Surface Actions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Perform rapid cache pruning directly from your phone launcher without opening the application.</p>
+</div>
+<button class="w-full py-2.5 mt-3 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center gap-2 font-body-sm text-body-sm font-semibold transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">add_to_home_screen</span>
+<span class="">+ Add 2×2 Widget</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high/60 my-1"></div>
+<!-- WIDGET 3: 4x1 Minimal Telemetry Strip -->
+<div class="relative flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Preview • Form Factor 4×1</span>
+<span class="font-telemetry-sm text-telemetry-sm text-on-surface-variant">Minimal Dock Strip</span>
+</div>
+<!-- Glassmorphic 4x1 Slim Strip -->
+<div class="bg-surface-container-low/95 rounded-xl px-4 py-3 shadow-xl backdrop-blur-xl flex items-center justify-between gap-2">
+<!-- Metric 1 -->
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-[9px] text-on-surface-variant uppercase">Free Space</span>
+<span class="font-telemetry-md text-telemetry-md font-bold text-on-surface truncate">13.8 GB</span>
+</div>
+</div>
+<div class="h-6 w-px bg-surface-container-highest shrink-0"></div>
+<!-- Metric 2 -->
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-[9px] text-on-surface-variant uppercase">Safe Trash</span>
+<span class="font-telemetry-md text-telemetry-md font-bold text-on-surface truncate">1.2 GB</span>
+</div>
+</div>
+<!-- Rescan button trigger -->
+<button class="shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-telemetry-sm text-telemetry-sm font-semibold transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+<span class="">Rescan</span>
+</button>
+</div>
+<!-- Add Widget Action -->
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center gap-2 font-body-sm text-body-sm font-semibold transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-[18px]">add_to_home_screen</span>
+<span class="">+ Add 4×1 Strip to Home Screen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SECTION 2: StoragePulse Pro — Lifetime Ad-Free Card -->
+<div class="relative rounded-2xl bg-gradient-to-br from-secondary-container/40 via-surface-container to-primary-container/20 p-0.5 shadow-2xl overflow-hidden">
+<!-- Inner Card container -->
+<div class="bg-surface-container-low rounded-[15px] p-5 flex flex-col space-y-space-md">
+<!-- Card Badge & Headline -->
+<div class="flex items-start justify-between gap-3">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary-container/50 text-secondary font-telemetry-sm text-telemetry-sm">Swipe Gestures Enabled</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">Unlock StoragePulse Pro</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">$2.99 One-Time. Pay once, own forever.</p>
+</div>
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-secondary-container to-primary-container flex items-center justify-center text-on-primary shadow-lg shrink-0">
+<span class="material-symbols-outlined text-[28px]">rocket_launch</span>
+</div>
+</div>
+<!-- Value Props List -->
+<div class="space-y-2.5 pt-1">
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+<span class="font-semibold text-on-surface">100% Ad-Free Forever:</span> Zero interstitials, banners, or analytics trackers.
+          </p>
+</div>
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+<span class="font-semibold text-on-surface">Lossless Batch Compression:</span> Compress 4K videos &amp; RAW photos up to 75% smaller.
+          </p>
+</div>
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+<span class="font-semibold text-on-surface">Automated Weekly Purge:</span> Background AI cleaner purges safely without user input.
+          </p>
+</div>
+<div class="flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+<span class="font-semibold text-on-surface">All Glance Widget Layouts:</span> OLED pure blacks, live telemetry, and instant clean triggers.
+          </p>
+</div>
+</div>
+<!-- Action Button & Restore Link -->
+<div class="pt-2 flex flex-col gap-2.5">
+<button class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-primary to-primary-container hover:opacity-95 text-on-primary font-headline-md text-[16px] font-bold shadow-[0_0_24px_rgba(78,222,163,0.4)] flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">stars</span>
+<span class="">Upgrade to Lifetime Pro ($2.99)</span>
+</button>
+<div class="flex items-center justify-between px-2 pt-1 font-telemetry-sm text-telemetry-sm text-on-surface-variant">
+<button class="hover:text-primary transition-colors">Restore Previous Purchase</button>
+<span class="">Google Play Secure Billing</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: System & Automation Settings -->
+<div class="flex flex-col space-y-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">System &amp; Automation Engine</h2>
+</div>
+<div class="bg-surface-container rounded-2xl p-4 space-y-4 shadow-sm">
+<!-- Setting Item 1: Weekly Clutter Notification -->
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-headline-md text-[15px] font-semibold text-on-surface truncate">Weekly Clutter Notification</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every Sunday at 8:00 PM • Scans background cache</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="toggle-weekly-scan" type="checkbox">
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary-fixed after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Setting Item 2: Safe Trash Retention -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[20px]">history_toggle_off</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[15px] font-semibold text-on-surface">Safe Trash Quarantine</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recover files before permanent storage purge</p>
+</div>
+</div>
+<span class="font-telemetry-sm text-telemetry-sm font-bold text-primary px-2.5 py-1 rounded-lg bg-surface-container-high">30 DAYS</span>
+</div>
+<!-- Retention Preset Segmented Selector -->
+<div class="grid grid-cols-3 gap-2 mt-1">
+<button class="py-1.5 px-3 rounded-lg bg-surface-container-high text-on-surface-variant font-telemetry-sm text-telemetry-sm hover:text-on-surface transition-all">7 Days</button>
+<button class="py-1.5 px-3 rounded-lg bg-primary-container text-on-primary font-telemetry-sm text-telemetry-sm font-bold shadow-sm">30 Days</button>
+<button class="py-1.5 px-3 rounded-lg bg-surface-container-high text-on-surface-variant font-telemetry-sm text-telemetry-sm hover:text-on-surface transition-all">60 Days</button>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Setting Item 3: App Theme Selector -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<div>
+<h3 class="font-headline-md text-[15px] font-semibold text-on-surface">Telemetry Color Accent</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Optimized for high-contrast OLED battery saving</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-1">
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container-high text-on-surface">
+<span class="w-3 h-3 rounded-full bg-primary shrink-0"></span>
+<span class="font-telemetry-sm text-telemetry-sm truncate font-semibold">Obsidian</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-secondary shrink-0"></span>
+<span class="font-telemetry-sm text-telemetry-sm truncate">Indigo</span>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-xl bg-surface-container-low text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-tertiary shrink-0"></span>
+<span class="font-telemetry-sm text-telemetry-sm truncate">Amber</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-high"></div>
+<!-- Setting Item 4: Diagnostics & Scoped Storage Notice -->
+<div class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-lowest">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">shield</span>
+<div class="space-y-0.5">
+<span class="font-telemetry-sm text-telemetry-sm text-primary font-bold block">100% ON-DEVICE PRIVACY</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">StoragePulse utilizes Android 14 Scoped Storage. No cloud backups, telemetry logs, or internet permissions are required.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline micro-interaction script for live button simulation -->
+<script>
+  (function() {
+    const boostBtn = document.getElementById('boost-btn-1');
+    const boostText = document.getElementById('boost-btn-text');
+    if (boostBtn && boostText) {
+      boostBtn.addEventListener('click', function() {
+        boostText.textContent = "Boosting...";
+        boostBtn.classList.add('opacity-80');
+        setTimeout(() => {
+          boostText.textContent = "Cleaned! +6.4GB";
+          boostBtn.classList.remove('opacity-80');
+          setTimeout(() => {
+            boostText.textContent = "Boost 6.4 GB";
+          }, 2400);
+        }, 800);
+      });
+    }
+
+    // Set tools nav tab active if available in parent shell
+    const toolsTab = document.querySelector('a[data-path="tools"]');
+    if (toolsTab) {
+      const activeTabs = document.querySelectorAll('nav a');
+      activeTabs.forEach(t => t.classList.remove('text-primary'));
+      toolsTab.classList.add('text-primary');
+      const dot = toolsTab.querySelector('.indicator-dot');
+      if (dot) dot.style.opacity = '1';
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(0,0,0,0.55)]" data-active-classes="text-primary [&amp;_.indicator-dot]:opacity-100"><div class="grid grid-cols-5 items-center h-16 px-1"><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">speed</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Dashboard</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="treemap" href="#"><span class="material-symbols-outlined text-[22px]">account_tree</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Treemap</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="ai-clean" href="#"><span class="material-symbols-outlined text-[22px]">auto_awesome</span><span class="font-body-sm text-body-sm font-medium tracking-tight">AI Clean</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="gallery-vault" href="#"><span class="material-symbols-outlined text-[22px]">lock</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Gallery</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a><a class="flex flex-col items-center justify-center gap-0.5 h-full text-on-surface-variant transition-all hover:text-on-surface active:scale-95 group" data-path="tools" href="#"><span class="material-symbols-outlined text-[22px]">build_circle</span><span class="font-body-sm text-body-sm font-medium tracking-tight">Tools</span><span class="indicator-dot w-1 h-1 rounded-full bg-primary opacity-0 transition-opacity"></span></a></div></nav>
+
+</body></html>
