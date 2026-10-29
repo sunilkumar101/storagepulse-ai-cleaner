@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 13+ Privacy Sandbox (AdServices) APIs the Google Mobile Ads SDK may call on our behalf.
+     Referenced by the AD_SERVICES_CONFIG property in AndroidManifest.xml. -->
+<ad-services-config>
+    <topics allowAllToAccess="true" />
+    <attribution allowAllToAccess="true" />
+    <custom-audiences allowAllToAccess="true" />
+    <protected-signals allowAllToAccess="true" />
+</ad-services-config>

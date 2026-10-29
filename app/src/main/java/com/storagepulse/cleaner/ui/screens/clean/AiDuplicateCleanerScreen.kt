@@ -124,12 +124,9 @@ fun AiDuplicateCleanerScreen(viewModel: AiCleanViewModel = hiltViewModel()) {
     var loupeFor by remember { mutableStateOf<MediaCluster?>(null) }
 
     val activity = androidx.activity.compose.LocalActivity.current
-    MessageEffect(
-        message, snackbar,
-        onUndo = viewModel::undo,
-        onConsumed = viewModel::consumeMessage,
-        onCleaned = { activity?.let(viewModel::afterClean) },
-    )
+    val adsEnabled by viewModel.adsEnabled.collectAsStateWithLifecycle()
+    val bulkAd = adsEnabled && state.selected.size > AiCleanViewModel.BULK_AD_THRESHOLD
+    MessageEffect(message, snackbar, onUndo = viewModel::undo, onConsumed = viewModel::consumeMessage)
 
     // Keep the screen on while analysing: if the phone sleeps, aggressive OEM battery
     // managers kill the (now background) CPU-heavy process mid-analysis.
@@ -203,9 +200,9 @@ fun AiDuplicateCleanerScreen(viewModel: AiCleanViewModel = hiltViewModel()) {
             text = { Text(androidx.compose.ui.res.pluralStringResource(R.plurals.ai_confirm_body, state.selected.size, formatCount(state.selected.size)), color = TextSecondary) },
             confirmButton = {
                 Button(
-                    onClick = { confirm = false; viewModel.trashSelected() },
+                    onClick = { confirm = false; activity?.let(viewModel::trashSelectedGated) ?: viewModel.trashSelected() },
                     colors = ButtonDefaults.buttonColors(containerColor = DestructiveRed, contentColor = OnDestructive),
-                ) { Text(stringResource(R.string.ai_confirm)) }
+                ) { Text(stringResource(if (bulkAd) R.string.ai_confirm_ad else R.string.ai_confirm)) }
             },
             dismissButton = {
                 TextButton(onClick = { confirm = false }) { Text(stringResource(R.string.purge_cancel), color = TextPrimary) }
@@ -222,7 +219,6 @@ private fun MessageEffect(
     snackbar: SnackbarHostState,
     onUndo: (List<Long>) -> Unit,
     onConsumed: () -> Unit,
-    onCleaned: () -> Unit,
 ) {
     val undoLabel = stringResource(R.string.ai_undo)
     val text = when (message) {
@@ -231,6 +227,7 @@ private fun MessageEffect(
         CleanMessage.NeedsFullAccess -> stringResource(R.string.ai_msg_full_access)
         is CleanMessage.Restored -> stringResource(R.string.ai_msg_restored, message.files)
         CleanMessage.Failed -> stringResource(R.string.ai_msg_failed)
+        CleanMessage.AdNotFinished -> stringResource(R.string.ai_msg_ad_not_finished)
         null -> null
     }
     LaunchedEffect(message) {
@@ -238,8 +235,6 @@ private fun MessageEffect(
         // Consume only after showing: clearing the message first would cancel this effect.
         if (message is CleanMessage.Moved) {
             val r = snackbar.showSnackbar(text, actionLabel = undoLabel, duration = SnackbarDuration.Long)
-            // Free users: an interstitial (3-min cap) only after the Undo window has passed.
-            if (r != SnackbarResult.ActionPerformed) onCleaned()
             onConsumed()
             if (r == SnackbarResult.ActionPerformed) onUndo(message.trashIds)
         } else {

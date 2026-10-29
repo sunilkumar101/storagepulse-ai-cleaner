@@ -5,7 +5,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.LaunchedEffect
 import kotlinx.coroutines.launch
-import com.storagepulse.cleaner.ui.components.AdBanner
+import com.storagepulse.cleaner.ui.components.AdMobBannerView
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import com.storagepulse.cleaner.ui.screens.settings.WidgetsAndProSettingsScreen
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -92,13 +95,24 @@ fun AppNavHost(viewModel: AppStartViewModel = hiltViewModel()) {
         // Each screen handles its own insets; the bottom bar pads for the nav bar itself.
         contentWindowInsets = WindowInsets(0),
         bottomBar = {
-            if (currentRoute in Routes.tabRoutes) {
-                Column {
-                    if (adsEnabled) AdBanner(viewModel.bannerUnitId, Modifier.background(ObsidianCanvas))
-                    AppBottomNavigationBar(
-                        currentRoute = currentRoute,
-                        onTabSelected = { tab -> navController.navigateToTab(tab.route) },
-                    )
+            val tab = currentRoute in Routes.tabRoutes
+            // Free users: one anchored adaptive banner on the browsing screens only (never in the
+            // vault, gallery, AI Clean selection bar or full-screen tools). Pro: not composed at all.
+            val banner = adsEnabled && currentRoute in Routes.bannerRoutes
+            if (tab || banner) {
+                Column(Modifier.background(ObsidianCanvas)) {
+                    if (banner) {
+                        AdMobBannerView(
+                            viewModel.bannerUnitId,
+                            if (tab) Modifier else Modifier.windowInsetsPadding(WindowInsets.navigationBars),
+                        )
+                    }
+                    if (tab) {
+                        AppBottomNavigationBar(
+                            currentRoute = currentRoute,
+                            onTabSelected = { t -> navController.navigateToTab(t.route) },
+                        )
+                    }
                 }
             }
         },
@@ -106,7 +120,8 @@ fun AppNavHost(viewModel: AppStartViewModel = hiltViewModel()) {
         NavHost(
             navController = navController,
             startDestination = start,
-            modifier = Modifier.padding(innerPadding),
+            // consumeWindowInsets: screens under a banner/nav bar must not pad for the system bar again.
+            modifier = Modifier.padding(innerPadding).consumeWindowInsets(innerPadding),
         ) {
             composable(Routes.ONBOARDING) {
                 StorageDisclosureScreen(

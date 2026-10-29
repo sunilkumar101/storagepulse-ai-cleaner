@@ -3,20 +3,25 @@ package com.storagepulse.cleaner.ads
 import android.app.Activity
 import android.content.Context
 import android.os.SystemClock
+import android.util.Log
 import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.nativead.NativeAd
+import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.google.android.ump.ConsentInformation
-import com.google.android.ump.ConsentRequestParameters
-import com.google.android.ump.UserMessagingPlatform
 import com.storagepulse.cleaner.BuildConfig
 import com.storagepulse.cleaner.data.billing.ProRepository
+import com.storagepulse.cleaner.data.storage.StorageScannerRepository
+import com.storagepulse.cleaner.data.storage.model.ScanState
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,10 +29,11 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.concurrent.TimeUnit
@@ -40,81 +46,76 @@ enum class AdGateResult {
     EARNED,
     /** User closed the ad early: no reward. */
     DISMISSED,
-    /** No ad could be loaded (offline, no fill): the feature still runs, never blocked. */
+    /** No ad could be loaded or shown (offline, no fill, error): the feature still runs, never blocked. */
     UNAVAILABLE,
 }
 
 /**
  * All ads in one place. Unit ids come from BuildConfig: Google's TEST ids in debug, production
- * ids (gradle properties) in release. Pro users never see or load an ad.
- * Ads are requested only after Google UMP consent allows it ([gatherConsent]).
+ * ids (gradle properties) in release. Ads are requested only for free users and only after Google
+ * UMP consent allows it ([ConsentManager]). Pro users never load or see an ad.
+ *
+ * Formats: anchored adaptive banner (`AdMobBannerView`), rewarded (batch compression, bulk
+ * duplicate clean-up), frequency-capped interstitial (end of a swipe session, after emptying a
+ * large Safe Trash) and one native card in the unused-apps list.
  */
 @Singleton
 class AdMobManager @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val consent: ConsentManager,
+    private val scanner: StorageScannerRepository,
     pro: ProRepository,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
-    private val consent: ConsentInformation = UserMessagingPlatform.getConsentInformation(context)
-    private val _canRequestAds = MutableStateFlow(consent.canRequestAds())
-
-    /**
-     * true only for free users whose consent state allows ad requests (UMP). false until the Pro
-     * state is known, so Pro users never see a flash of an ad.
-     */
-    val adsEnabled: StateFlow<Boolean> = combine(pro.isPro, _canRequestAds) { isPro, can -> !isPro && can }
+    /** true only for free users whose consent allows ad requests; false until Pro state is known. */
+    val adsEnabled: StateFlow<Boolean> = combine(pro.isPro, consent.canRequestAds) { isPro, can -> !isPro && can }
         .stateIn(scope, SharingStarted.Eagerly, false)
 
-    private val _privacyOptionsRequired = MutableStateFlow(false)
-    /** EEA/UK/CH users must be able to change their ad consent: Settings shows a button then. */
-    val privacyOptionsRequired: StateFlow<Boolean> = _privacyOptionsRequired.asStateFlow()
-
-    /**
-     * Google UMP consent: refreshes the consent state and shows Google's consent form when it is
-     * required (EEA/UK/CH). Ads are only initialised and requested once [canRequestAds] is true.
-     * Call from the activity on every launch (free users only).
-     */
-    fun gatherConsent(activity: Activity) {
-        if (consent.canRequestAds()) onConsentReady()
-        consent.requestConsentInfoUpdate(
-            activity,
-            ConsentRequestParameters.Builder().build(),
-            {
-                UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { onConsentReady() }
-            },
-            { onConsentReady() }, // offline / error: keep the previous decision
-        )
-    }
-
-    fun showPrivacyOptions(activity: Activity) {
-        UserMessagingPlatform.showPrivacyOptionsForm(activity) { onConsentReady() }
-    }
-
-    private fun onConsentReady() {
-        _privacyOptionsRequired.value =
-            consent.privacyOptionsRequirementStatus == ConsentInformation.PrivacyOptionsRequirementStatus.REQUIRED
-        val can = consent.canRequestAds()
-        _canRequestAds.value = can
-        if (can) initialize()
-    }
+    val privacyOptionsRequired: StateFlow<Boolean> = consent.privacyOptionsRequired
 
     val bannerUnitId: String = BuildConfig.ADMOB_BANNER_ID
 
-    private var initialized = false
+    init {
+        // Becoming Pro: drop any preloaded full-screen ads at once.
+        scope.launch {
+            adsEnabled.drop(1).filter { !it }.collect {
+                interstitial = null
+                rewarded = null
+            }
+        }
+    }
 
-    /** AdMob init off the main thread (it does disk + network work). Only after consent. */
+    /** UMP consent first, then SDK init (background thread). Call from the activity, free users only. */
+    fun gatherConsent(activity: Activity) = consent.gather(activity) { if (consent.canRequestAds.value) initialize() }
+
+    fun showPrivacyOptions(activity: Activity) = consent.showPrivacyOptions(activity) { if (consent.canRequestAds.value) initialize() }
+
+    @Volatile private var initialized = false
+
     private fun initialize() {
         if (initialized) return
         initialized = true
-        Thread { MobileAds.initialize(context) }.start()
+        Thread {
+            val testIds = buildList {
+                add(AdRequest.DEVICE_ID_EMULATOR)
+                addAll(BuildConfig.ADMOB_TEST_DEVICE_IDS.split(',').map { it.trim() }.filter { it.isNotEmpty() })
+                // Debug: the phone running this build is always a test device, so developer
+                // impressions and clicks can never count as invalid traffic.
+                if (BuildConfig.DEBUG) add(ConsentManager.hashedDeviceId(context))
+            }
+            MobileAds.setRequestConfiguration(RequestConfiguration.Builder().setTestDeviceIds(testIds).build())
+            MobileAds.initialize(context) { status ->
+                Log.i(TAG, "Mobile Ads SDK initialized: " + status.adapterStatusMap.entries.joinToString { "${it.key}=${it.value.initializationState}" })
+            }
+        }.start()
     }
 
     // ------------------------------------------------------------------ interstitial
 
     private var interstitial: InterstitialAd? = null
     private var interstitialLoading = false
-    // Starts the cap at app launch: no interstitial in the first 3 minutes either.
+    // The cap starts at app launch: never an interstitial on launch or in the first 3 minutes.
     private var lastInterstitialAt = SystemClock.elapsedRealtime()
 
     fun preloadInterstitial() {
@@ -132,17 +133,20 @@ class AdMobManager @Inject constructor(
 
                 override fun onAdFailedToLoad(error: LoadAdError) {
                     interstitialLoading = false
+                    Log.i(TAG, "Interstitial not loaded: ${error.code} ${error.message}")
                 }
             },
         )
     }
 
     /**
-     * Shows an interstitial after a finished clean-up, at most once every 3 minutes and only if
-     * one is already loaded (never makes the user wait). Returns true if shown.
+     * Shows an interstitial at a natural break, at most once every 3 minutes, only if one is
+     * already loaded (never makes the user wait) and never while a storage scan is running.
+     * Returns true if shown.
      */
     fun maybeShowInterstitial(activity: Activity): Boolean {
         if (!adsEnabled.value) return false
+        if (scanner.state.value is ScanState.Scanning) return false
         val now = SystemClock.elapsedRealtime()
         if (now - lastInterstitialAt < INTERSTITIAL_COOLDOWN_MS) return false
         val ad = interstitial ?: run {
@@ -179,14 +183,16 @@ class AdMobManager @Inject constructor(
 
                 override fun onAdFailedToLoad(error: LoadAdError) {
                     rewardedLoading = false
+                    Log.i(TAG, "Rewarded not loaded: ${error.code} ${error.message}")
                 }
             },
         )
     }
 
     /**
-     * Rewarded video in front of a batch action. Pro → EARNED with no ad. Offline / no fill
-     * within [waitMs] → UNAVAILABLE and the caller runs the feature anyway.
+     * Rewarded video in front of a premium action. Pro → EARNED with no ad. Offline / no fill
+     * within [waitMs] / failure to show → UNAVAILABLE, and the caller runs the action anyway.
+     * Only an ad the user closes early returns DISMISSED (no reward, per AdMob policy).
      */
     suspend fun showRewarded(activity: Activity, waitMs: Long = 5_000): AdGateResult {
         if (!adsEnabled.value) return AdGateResult.EARNED
@@ -217,7 +223,27 @@ class AdMobManager @Inject constructor(
         }
     }
 
+    // ------------------------------------------------------------------ native
+
+    /** Loads one native ad for an in-list card; [onLoaded] runs on the main thread. Caller destroys it. */
+    fun loadNative(onLoaded: (NativeAd) -> Unit) {
+        if (!adsEnabled.value) return
+        AdLoader.Builder(context, BuildConfig.ADMOB_NATIVE_ID)
+            .forNativeAd { ad ->
+                if (adsEnabled.value) onLoaded(ad) else ad.destroy()
+            }
+            .withAdListener(object : AdListener() {
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    Log.i(TAG, "Native not loaded: ${error.code} ${error.message}")
+                }
+            })
+            .withNativeAdOptions(NativeAdOptions.Builder().setAdChoicesPlacement(NativeAdOptions.ADCHOICES_TOP_RIGHT).build())
+            .build()
+            .loadAd(AdRequest.Builder().build())
+    }
+
     companion object {
+        private const val TAG = "StoragePulseAds"
         val INTERSTITIAL_COOLDOWN_MS = TimeUnit.MINUTES.toMillis(3)
     }
 }

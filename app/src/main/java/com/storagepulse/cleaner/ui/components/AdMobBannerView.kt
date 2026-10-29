@@ -12,9 +12,13 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
-/** Anchored adaptive banner sized to the available width. Only shown to free users. */
+/**
+ * Anchored adaptive banner: height comes from
+ * AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize for the available width. Free users
+ * only; when Pro turns on, the caller drops it from the hierarchy and the AdView is destroyed.
+ */
 @Composable
-fun AdBanner(unitId: String, modifier: Modifier = Modifier) {
+fun AdMobBannerView(unitId: String, modifier: Modifier = Modifier) {
     BoxWithConstraints(modifier.fillMaxWidth()) {
         val context = LocalContext.current
         val widthDp = maxWidth.value.toInt()

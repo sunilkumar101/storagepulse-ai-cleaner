@@ -24,4 +24,7 @@ object Routes {
     const val SETTINGS = "settings"
 
     val tabRoutes = setOf(DASHBOARD, TREEMAP, AI_CLEAN, GALLERY, TOOLS)
+
+    /** Screens with the anchored banner (free users). Never vault, gallery, AI Clean or swipe deck. */
+    val bannerRoutes = setOf(DASHBOARD, TREEMAP, TOOLS, CHAT_CLEANER, SAFE_TRASH)
 }

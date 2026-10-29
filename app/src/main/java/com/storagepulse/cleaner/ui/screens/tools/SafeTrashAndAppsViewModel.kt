@@ -11,6 +11,7 @@ import com.storagepulse.cleaner.data.trash.SafeTrashRepository
 import com.storagepulse.cleaner.data.trash.TrashItemEntity
 import com.storagepulse.cleaner.data.trash.TrashMoveResult
 import com.storagepulse.cleaner.data.trash.TrashTotals
+import com.storagepulse.cleaner.ads.AdMobManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -27,7 +28,7 @@ enum class AppFilter { ALL, UNUSED_30D }
 
 sealed interface ToolsMessage {
     data class Restored(val n: Int) : ToolsMessage
-    data class Emptied(val n: Int) : ToolsMessage
+    data class Emptied(val n: Int, val bytes: Long) : ToolsMessage
     data class Installers(val n: Int) : ToolsMessage
 }
 
@@ -54,7 +55,17 @@ class SafeTrashAndAppsViewModel @Inject constructor(
     private val apps: AppSpaceRepository,
     private val trash: SafeTrashRepository,
     private val scanner: StorageScannerRepository,
+    val ads: AdMobManager,
 ) : ViewModel() {
+
+    val adsEnabled: StateFlow<Boolean> = ads.adsEnabled
+
+    init { ads.preloadInterstitial() }
+
+    /** After the "space freed" celebration of a big Empty Trash: a capped interstitial (free users). */
+    fun afterBigCleanup(activity: android.app.Activity) {
+        ads.maybeShowInterstitial(activity)
+    }
 
     private val _state = MutableStateFlow(
         ToolsUiState(tab = if (savedState.get<String>(ARG_TAB) == "trash") ToolsTab.TRASH else ToolsTab.APPS),
@@ -109,9 +120,10 @@ class SafeTrashAndAppsViewModel @Inject constructor(
 
     /** Permanent. The screen shows a red confirm dialog with count and size first. */
     fun emptyTrash() = work {
+        val bytes = trashTotals.value.bytes
         val n = trash.emptyTrashPermanently()
         scanner.startScan(force = true)
-        _message.value = ToolsMessage.Emptied(n)
+        _message.value = ToolsMessage.Emptied(n, bytes)
     }
 
     fun consumeMessage() { _message.value = null }
@@ -124,5 +136,9 @@ class SafeTrashAndAppsViewModel @Inject constructor(
         }
     }
 
-    companion object { const val ARG_TAB = "tab" }
+    companion object {
+        const val ARG_TAB = "tab"
+        /** Emptying more than this triggers the celebration dialog (and then maybe an interstitial). */
+        const val BIG_CLEANUP_BYTES = 500_000_000L
+    }
 }

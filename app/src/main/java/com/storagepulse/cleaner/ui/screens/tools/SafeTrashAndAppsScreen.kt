@@ -25,6 +25,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.outlined.CheckCircle
+import com.storagepulse.cleaner.ui.components.NativeAdCard
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -118,6 +120,9 @@ fun SafeTrashAndAppsScreen(viewModel: SafeTrashAndAppsViewModel = hiltViewModel(
     val snackbar = remember { SnackbarHostState() }
     var confirmEmpty by rememberSaveable { mutableStateOf(false) }
     var showAllTrash by rememberSaveable { mutableStateOf(false) }
+    var celebrate by rememberSaveable { mutableStateOf<Long?>(null) }
+    val adsEnabled by viewModel.adsEnabled.collectAsStateWithLifecycle()
+    val activity = androidx.activity.compose.LocalActivity.current
 
     LifecycleResumeEffect(Unit) {
         viewModel.refresh()
@@ -130,7 +135,12 @@ fun SafeTrashAndAppsScreen(viewModel: SafeTrashAndAppsViewModel = hiltViewModel(
         null -> null
     }
     LaunchedEffect(message) {
-        if (text != null) {
+        val m = message
+        if (m is ToolsMessage.Emptied && m.bytes > SafeTrashAndAppsViewModel.BIG_CLEANUP_BYTES) {
+            // Big clean-up: a celebration first; the (capped) interstitial only after the user closes it.
+            celebrate = m.bytes
+            viewModel.consumeMessage()
+        } else if (text != null) {
             snackbar.showSnackbar(text)
             viewModel.consumeMessage()
         }
@@ -158,12 +168,16 @@ fun SafeTrashAndAppsScreen(viewModel: SafeTrashAndAppsViewModel = hiltViewModel(
                             item { AppsHeader(state) }
                             if (state.appsLoading) item { LinearProgressIndicator(Modifier.fillMaxWidth(), color = Emerald, trackColor = SurfaceStroke) }
                             if (!state.appsLoading && state.shownApps.isEmpty()) item { Text(stringResource(R.string.tl_no_unused), color = TextSecondary) }
-                            items(state.shownApps, key = { it.packageName }) { app ->
-                                AppCard(
-                                    app,
-                                    onClearCache = { context.startActivity(viewModel.appInfoIntent(app.packageName)) },
-                                    onUninstall = { context.startActivity(viewModel.uninstallIntent(app.packageName)) },
-                                )
+                            state.shownApps.forEachIndexed { i, app ->
+                                item(key = app.packageName) {
+                                    AppCard(
+                                        app,
+                                        onClearCache = { context.startActivity(viewModel.appInfoIntent(app.packageName)) },
+                                        onUninstall = { context.startActivity(viewModel.uninstallIntent(app.packageName)) },
+                                    )
+                                }
+                                // One native ad card after the 3rd app (free users only).
+                                if (i == 2 && adsEnabled) item(key = "native_ad") { NativeAdCard(viewModel.ads, adsEnabled) }
                             }
                         }
                         item { InstallersCard(state, viewModel::trashInstallers) }
@@ -185,6 +199,22 @@ fun SafeTrashAndAppsScreen(viewModel: SafeTrashAndAppsViewModel = hiltViewModel(
             }
         }
         SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter).padding(16.dp))
+    }
+
+    celebrate?.let { bytes ->
+        AlertDialog(
+            onDismissRequest = { celebrate = null; activity?.let(viewModel::afterBigCleanup) },
+            containerColor = SurfaceCard,
+            icon = { Icon(Icons.Outlined.CheckCircle, null, tint = Emerald) },
+            title = { Text(stringResource(R.string.tl_celebrate_title, formatBytes(bytes)), color = TextPrimary) },
+            text = { Text(stringResource(R.string.tl_celebrate_body), color = TextSecondary) },
+            confirmButton = {
+                Button(
+                    onClick = { celebrate = null; activity?.let(viewModel::afterBigCleanup) },
+                    colors = ButtonDefaults.buttonColors(containerColor = Emerald, contentColor = OnEmeraldLight),
+                ) { Text(stringResource(R.string.tl_celebrate_ok)) }
+            },
+        )
     }
 
     if (confirmEmpty) {

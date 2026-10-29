@@ -13,6 +13,7 @@ val TEST_ADMOB_APP = "ca-app-pub-3940256099942544~3347511713"
 val TEST_BANNER = "ca-app-pub-3940256099942544/9214589741"
 val TEST_INTERSTITIAL = "ca-app-pub-3940256099942544/1033173712"
 val TEST_REWARDED = "ca-app-pub-3940256099942544/5224354917"
+val TEST_NATIVE = "ca-app-pub-3940256099942544/2247696110"
 // Upload-key signing: credentials live in the git-ignored keystore/keystore.properties.
 val keystoreProps = Properties().apply {
     val f = rootProject.file("keystore/keystore.properties")
@@ -58,6 +59,11 @@ android {
             buildConfigField("String", "ADMOB_BANNER_ID", "\"$TEST_BANNER\"")
             buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"$TEST_INTERSTITIAL\"")
             buildConfigField("String", "ADMOB_REWARDED_ID", "\"$TEST_REWARDED\"")
+            buildConfigField("String", "ADMOB_NATIVE_ID", "\"$TEST_NATIVE\"")
+            // Extra hashed test-device ids (comma separated); this device is added automatically in debug.
+            buildConfigField("String", "ADMOB_TEST_DEVICE_IDS", "\"${prop("ADMOB_TEST_DEVICE_IDS", "")}\"")
+            // -PADMOB_DEBUG_EEA=true forces the UMP consent form (EEA geography) for testing.
+            buildConfigField("boolean", "ADMOB_DEBUG_EEA", prop("ADMOB_DEBUG_EEA", "false"))
         }
         release {
             // Signed with the upload key when keystore/keystore.properties exists (else unsigned).
@@ -69,6 +75,10 @@ android {
             buildConfigField("String", "ADMOB_BANNER_ID", "\"${prop("ADMOB_BANNER_ID", TEST_BANNER)}\"")
             buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"${prop("ADMOB_INTERSTITIAL_ID", TEST_INTERSTITIAL)}\"")
             buildConfigField("String", "ADMOB_REWARDED_ID", "\"${prop("ADMOB_REWARDED_ID", TEST_REWARDED)}\"")
+            buildConfigField("String", "ADMOB_NATIVE_ID", "\"${prop("ADMOB_NATIVE_ID", TEST_NATIVE)}\"")
+            // Developer phones stay registered as test devices in release too (no invalid traffic).
+            buildConfigField("String", "ADMOB_TEST_DEVICE_IDS", "\"${prop("ADMOB_TEST_DEVICE_IDS", "")}\"")
+            buildConfigField("boolean", "ADMOB_DEBUG_EEA", "false")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -159,6 +169,7 @@ dependencies {
     implementation(libs.androidx.work.runtime.ktx)
 
     implementation(libs.play.services.ads)
+    implementation(libs.ump)
     implementation(libs.billing.ktx)
 
     testImplementation(libs.junit)

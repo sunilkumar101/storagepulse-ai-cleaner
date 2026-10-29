@@ -559,4 +559,10 @@
     <string name="privacy_policy_url" translatable="false">https://sunilkumar101.github.io/storagepulse-ai-cleaner/privacy-policy.html</string>
     <string name="st_privacy_policy">Privacy Policy</string>
     <string name="st_ad_choices">Ad privacy choices</string>
+    <string name="tl_celebrate_title">%1$s freed!</string>
+    <string name="tl_celebrate_body">Safe Trash is empty and the space is back on your phone.</string>
+    <string name="tl_celebrate_ok">Nice</string>
+    <string name="ai_confirm_ad">Watch 1 ad &amp; move</string>
+    <string name="ai_msg_ad_not_finished">Watch the full ad to unlock moving more than 50 files at once, or select fewer.</string>
+    <string name="ad_badge">Ad</string>
 </resources>

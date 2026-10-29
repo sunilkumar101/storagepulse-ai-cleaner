@@ -31,6 +31,7 @@ sealed interface CleanMessage {
     data object NeedsFullAccess : CleanMessage
     data class Restored(val files: Int) : CleanMessage
     data object Failed : CleanMessage
+    data object AdNotFinished : CleanMessage
 }
 
 data class AiCleanUiState(
@@ -57,9 +58,24 @@ class AiCleanViewModel @Inject constructor(
     private val ads: AdMobManager,
 ) : ViewModel() {
 
-    /** After a finished clean-up: maybe an interstitial (free users, max once per 3 min). */
-    fun afterClean(activity: android.app.Activity) {
-        ads.maybeShowInterstitial(activity)
+    /** Free users unlock bulk clean-up (more than [BULK_AD_THRESHOLD] files) with one rewarded video. */
+    val adsEnabled: StateFlow<Boolean> = ads.adsEnabled
+
+    /**
+     * "Move to Safe Trash" for the selection. Above [BULK_AD_THRESHOLD] files a free user first watches
+     * a rewarded video; Pro, offline or no-fill never block. Closing the ad early cancels the move.
+     */
+    fun trashSelectedGated(activity: android.app.Activity) {
+        if (uiState.value.selected.size <= BULK_AD_THRESHOLD || !ads.adsEnabled.value) {
+            trashSelected()
+            return
+        }
+        viewModelScope.launch {
+            when (ads.showRewarded(activity)) {
+                com.storagepulse.cleaner.ads.AdGateResult.DISMISSED -> _message.value = CleanMessage.AdNotFinished
+                else -> trashSelected()
+            }
+        }
     }
 
     private val filter = MutableStateFlow(DedupFilter.ALL)
@@ -87,7 +103,7 @@ class AiCleanViewModel @Inject constructor(
 
     init {
         engine.analyze()
-        ads.preloadInterstitial()
+        ads.preloadRewarded()
         viewModelScope.launch {
             engine.state.collect { st ->
                 if (st !is DedupState.Ready) return@collect
@@ -215,5 +231,10 @@ class AiCleanViewModel @Inject constructor(
         DedupFilter.SIMILAR -> type == ClusterType.SIMILAR_BURST
         DedupFilter.BLURRY -> type == ClusterType.BLURRY
         DedupFilter.SCREENSHOTS -> type == ClusterType.OLD_SCREENSHOTS
+    }
+
+    companion object {
+        /** Bulk clean-ups larger than this need one rewarded video for free users. */
+        const val BULK_AD_THRESHOLD = 50
     }
 }

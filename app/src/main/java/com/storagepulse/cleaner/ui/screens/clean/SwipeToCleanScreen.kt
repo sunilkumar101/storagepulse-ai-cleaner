@@ -132,6 +132,15 @@ fun SwipeToCleanScreen(nav: SwipeNav, viewModel: SwipeDeckViewModel = hiltViewMo
     val threshold = with(density) { 120.dp.toPx() }
     val flyOut = with(density) { 900.dp.toPx() }
 
+    val activity = androidx.activity.compose.LocalActivity.current
+    // Session end = deck finished or the user leaves; the VM decides if an interstitial fits.
+    LaunchedEffect(state.finished) { if (state.finished) activity?.let(viewModel::endSession) }
+    val leave: () -> Unit = {
+        activity?.let(viewModel::endSession)
+        nav.onBack()
+    }
+    androidx.activity.compose.BackHandler(onBack = leave)
+
     val current = state.current
     LaunchedEffect(current?.uri) {
         offsetY.snapTo(0f)
@@ -173,7 +182,7 @@ fun SwipeToCleanScreen(nav: SwipeNav, viewModel: SwipeDeckViewModel = hiltViewMo
             .windowInsetsPadding(WindowInsets.safeDrawing),
     ) {
         Column(Modifier.fillMaxSize()) {
-            SwipeHeader(onBack = nav.onBack)
+            SwipeHeader(onBack = leave)
             CleanerSubNav(
                 active = CleanerTab.SWIPE_DECK,
                 onSelect = { tab ->

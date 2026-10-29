@@ -9,6 +9,7 @@ import com.storagepulse.cleaner.data.storage.StorageScannerRepository
 import com.storagepulse.cleaner.data.trash.SafeTrashRepository
 import com.storagepulse.cleaner.data.trash.TrashMoveResult
 import com.storagepulse.cleaner.data.trash.TrashRestoreResult
+import com.storagepulse.cleaner.ads.AdMobManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -50,7 +51,19 @@ class SwipeDeckViewModel @Inject constructor(
     private val videos: LargeVideoRepository,
     private val safeTrash: SafeTrashRepository,
     private val scanner: StorageScannerRepository,
+    private val ads: AdMobManager,
 ) : ViewModel() {
+
+    private var sessionAdShown = false
+
+    /**
+     * End of a swipe session (deck finished, or the user leaves): after at least
+     * [SESSION_AD_MIN_REVIEWED] reviews, free users may get one capped interstitial.
+     */
+    fun endSession(activity: android.app.Activity) {
+        if (sessionAdShown || _state.value.reviewed < SESSION_AD_MIN_REVIEWED) return
+        sessionAdShown = ads.maybeShowInterstitial(activity)
+    }
 
     private val _state = MutableStateFlow(SwipeUiState())
     val state: StateFlow<SwipeUiState> = _state.asStateFlow()
@@ -60,7 +73,10 @@ class SwipeDeckViewModel @Inject constructor(
 
     private val history = ArrayDeque<SwipeAction>()
 
-    init { load() }
+    init {
+        load()
+        ads.preloadInterstitial()
+    }
 
     fun load() {
         viewModelScope.launch {
@@ -147,5 +163,9 @@ class SwipeDeckViewModel @Inject constructor(
             val d = videos.details(item)
             _state.update { if (it.current?.path == item.path) it.copy(details = d) else it }
         }
+    }
+
+    companion object {
+        const val SESSION_AD_MIN_REVIEWED = 15
     }
 }

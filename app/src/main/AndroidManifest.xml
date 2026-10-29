@@ -61,6 +61,11 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="${admobAppId}" />
+        <!-- Android 13–16 Privacy Sandbox config for the ads SDK (replaces any SDK default). -->
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/ad_services_config"
+            tools:replace="android:resource" />
         <!-- Google's recommended flags: SDK init + ad loading work moves off the main thread
              (avoids a multi-second cold start / ANR risk). -->
         <meta-data
